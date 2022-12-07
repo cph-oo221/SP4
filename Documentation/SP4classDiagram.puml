@@ -1,8 +1,24 @@
 @startuml
 'https://plantuml.com/class-diagram
 
-class test
+class Main
+class GamePanel extends JPanel implements Graphics2D
 
+class Tile
+class TileHandler
 
+class KeyHandler extends KeyListener
+
+class Entity
+class Player extends Entity
+class Monster extends Entity
+class NPC extends Entity
+class Boss extends Monster
+class Mob extends Monster
+
+class OBJ
+class OBJRAM extends OBJ
+class OBJSign extends OBJ
+class OBJComputer extends OBJ
 
 @enduml

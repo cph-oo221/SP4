@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="5bc7c0e8-29d9-498a-b6a9-d3d8b614e252" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Documentation/SP4classDiagram.puml" beforeDir="false" afterPath="$PROJECT_DIR$/Documentation/SP4classDiagram.puml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,7 +45,7 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Oscar/Documents/GitHub/SP4&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Sebastian Egeberg/Desktop/SP4&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
   &quot;keyToStringList&quot;: {
