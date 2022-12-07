@@ -1,7 +1,4 @@
-# SP4 in XXX
+# SP4
 
-Made by Oskar Daniel Olsen
-
-Email: cph-oo221@cphbusiness.dk
 
 
