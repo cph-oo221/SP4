@@ -25,7 +25,11 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+<<<<<<< HEAD
   <component name="ProjectId" id="2IaZzzCswPyQuw1BbohDDbXQJio" />
+=======
+  <component name="ProjectId" id="2IaluCfEtgmyCIiiY3bPLumWVWN" />
+>>>>>>> c5521442ae080190a40de5c7e9eb8d8207721fa4
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -35,7 +39,16 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+<<<<<<< HEAD
     "node.js.selected.package.tslint": "(autodetect)"
+=======
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Users/Oscar/Documents/GitHub/SP4",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "vue.rearranger.settings.migration": "true"
+>>>>>>> c5521442ae080190a40de5c7e9eb8d8207721fa4
   }
 }]]></component>
   <component name="RunManager">
@@ -55,6 +68,7 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
+<<<<<<< HEAD
       <changelist id="e9a3dde6-7a79-4c8b-b734-f702724548d3" name="Changes" comment="" />
       <created>1670421922285</created>
       <option name="number" value="Default" />
@@ -73,5 +87,18 @@
         </entry>
       </map>
     </option>
+=======
+      <changelist id="ec757c3f-ae80-4a91-9efe-d42e0ba3d1c8" name="Changes" comment="" />
+      <created>1670427795413</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1670427795413</updated>
+      <workItem from="1670427797172" duration="654000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+>>>>>>> c5521442ae080190a40de5c7e9eb8d8207721fa4
   </component>
 </project>
