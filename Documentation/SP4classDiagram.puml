@@ -3,12 +3,12 @@
 !pragma layout smetana
 
 class Main
-class GamePanel extends JPanel implements Graphics2D
+class GamePanel extends JPanel implements Runnable
 
 class Tile
-class TileHandler
+class TileManager
 
-class KeyHandler extends KeyListener
+class KeyHandler implements KeyListener
 
 class Entity
 class Player extends Entity
@@ -16,10 +16,116 @@ class Monster extends Entity
 class NPC extends Entity
 class Boss extends Monster
 class Mob extends Monster
+class AssetSetter
+class UI
+class Sound
+class CollisionChecker
 
-class OBJ
-class OBJRAM extends OBJ
-class OBJSign extends OBJ
-class OBJComputer extends OBJ
+class SuperObject
+class OBJRAM extends SuperObject
+class OBJSign extends SuperObject
+class OBJComputer extends SuperObject
+
+Main *-- GamePanel
+GamePanel *-- TileManager
+GamePanel *-- Entity
+GamePanel *-- SuperObject
+GamePanel *-- KeyHandler
+GamePanel *-- AssetSetter
+GamePanel *-- UI
+GamePanel *-- Sound
+GamePanel *-- CollisionChecker
+TileManager *-- Tile
+
+Main : + main(String[] args)
+
+GamePanel : + SuperObject obj[]
+GamePanel : - final int originalTileSize
+GamePanel : - final int scale
+GamePanel : + final int tileSize
+GamePanel : + final int maxScreenColumn
+GamePanel : + final int maxScreenRow
+GamePanel : + final int screenWidth
+GamePanel : + final int screenHeight
+GamePanel : + final int maxWorldCol
+GamePanel : + final int maxWorldRow
+GamePanel : - int fps
+
+GamePanel : + void paintComponent(Graphics g)
+GamePanel : + void playMusic(int i)
+GamePanel : + void playSE(int i)
+GamePanel : + void stopMusic()
+GamePanel : + void run()
+GamePanel : + void setupGame()
+GamePanel : + void startGameThread()
+GamePanel : + void update()
+GamePanel : + void update()
+
+AssetSetter : - GamePanel gp
+AssetSetter : + void setObject()
+
+CollisionChecker : - GamePanel gp
+CollisionChecker : + void checkTile(Entity e)
+CollisionChecker : + int checkObject(Entity entity, boolean player)
+
+KeyHandler : + boolean upPressed
+KeyHandler : + boolean downPressed
+KeyHandler : + boolean leftPressed
+KeyHandler : + boolean rightPressed
+KeyHandler : + public void keyPressed(KeyEvent e)
+KeyHandler : + public void keyReleased(KeyEvent e)
+
+Sound : + Clip clip
+Sound : + URL soundURL[]
+Sound : + void setFile(int i)
+Sound : + void play()
+Sound : + void loop()
+Sound : + void stop()
+
+UI : - GamePanel gp
+UI : - Font font
+UI : - BufferedImage tmp_image
+UI : + void draw(Graphics2D g2)
+
+Entity : + int worldX, worldY
+Entity : + int speed
+Entity : + BufferedImage up1, up2, up3, down1, down2, down3, left1, left2, right1, right2
+Entity : + String direction
+Entity : + int spriteCounter
+Entity : + int spriteNumber
+Entity : + Rectangle solidArea
+Entity : + int solidAreaDefaultX, solidAreaDefaultY
+Entity : + boolean collisionOn
+
+Player : + GamePanel gp
+Player : + KeyHandler keyH
+Player : + final int screenx
+Player : + final int screenY
+Player : + int hasItem
+Player : + void getPlayerImage
+Player : + void setDefaultValues
+Player : + void update()
+Player : + void pickUpObject(int i)
+Player : + void draw(Graphics2D g2)
+
+TileManager : + GamePanel gp
+TileManager : + Tile[] tiles
+TileManager : + int mapTilNum[][]
+TileManager : + void getFileImage
+TileManager : + void loadMap(String filepath)
+TileManager : + void draw(Graphics2D g2)
+
+Tile : + BufferedImage image
+Tile : + boolean collision
+
+SuperObject : + GamePanel gp
+SuperObject : + BufferedImage image
+SuperObject : + String name
+SuperObject : + boolean collison
+SuperObject : + int worldX, worldY
+SuperObject : + Rectangle solidArea
+SuperObject : + int solidAreaDefaultX
+SuperObject : + int solidAreaDefaultY
+SuperObject : + void draw(Graphics2D g2, GamePanel gp)
 
 @enduml
