@@ -27,14 +27,14 @@ class OBJSign extends SuperObject
 class OBJComputer extends SuperObject
 
 Main *-- GamePanel
-GamePanel *-- TileManager
-GamePanel *-- Entity
-GamePanel *-- SuperObject
-GamePanel *-- KeyHandler
-GamePanel *-- AssetSetter
-GamePanel *-- UI
-GamePanel *-- Sound
-GamePanel *-- CollisionChecker
+GamePanel *--* TileManager
+GamePanel *--* Entity
+GamePanel *--* SuperObject
+GamePanel *--* KeyHandler
+GamePanel *--* AssetSetter
+GamePanel *--* UI
+GamePanel *--* Sound
+GamePanel *--* CollisionChecker
 TileManager *-- Tile
 
 Main : + main(String[] args)
