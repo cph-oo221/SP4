@@ -134,6 +134,11 @@ public class Player extends Entity{
                     gp.playSE(1);
                     gp.obj[i] = null;
                     break;
+                case "RAM" :
+                    hasTicket++;
+                    gp.playSE(1);
+                    gp.obj[i] = null;
+                    break;
                 case "Computer" :
                     break;
                 case "Sign" :

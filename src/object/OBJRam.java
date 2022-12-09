@@ -8,7 +8,7 @@ public class OBJRam extends SuperObject
 
     public OBJRam()
     {
-        name = "Sign";
+        name = "RAM";
         try
         {
             image = ImageIO.read(getClass().getResourceAsStream("/objects/Ram1.png"));
