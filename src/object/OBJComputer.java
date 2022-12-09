@@ -4,6 +4,8 @@ import javax.imageio.ImageIO;
 import java.io.IOException;
 
 public class OBJComputer extends SuperObject {
+
+
     public OBJComputer() {
         super.solidArea.height = 30;
         name = "Computer";
@@ -14,4 +16,7 @@ public class OBJComputer extends SuperObject {
         }
             collision = true;
     }
+
+
+
 }

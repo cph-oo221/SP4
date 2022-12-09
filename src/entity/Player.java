@@ -145,6 +145,8 @@ public class Player extends Entity{
                         gp.playSE(2);
 
                         hasTicket--;
+                        // computer wincount ++
+                        gp.countWinPoints();
                     }
                     break;
                 case "Sign" :

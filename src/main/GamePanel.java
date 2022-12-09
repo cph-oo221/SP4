@@ -26,6 +26,8 @@ public class GamePanel extends JPanel implements Runnable{
     //FPS
     private int FPS = 60;
 
+    //Win the game
+    int winCount = 0;
 
     //SYSTEM
 
@@ -151,5 +153,14 @@ public class GamePanel extends JPanel implements Runnable{
     {
         se.setFile(i);
         se.play();
+    }
+
+    public void countWinPoints()
+    {
+        winCount++;
+        if(winCount == 2)
+        {
+            System.out.println("YOU WON THE GAME");
+        }
     }
 }
