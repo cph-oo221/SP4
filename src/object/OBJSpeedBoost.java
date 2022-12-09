@@ -3,9 +3,9 @@ package object;
 import javax.imageio.ImageIO;
 import java.io.IOException;
 
-public class OBJRAM extends SuperObject
+public class OBJSpeedBoost extends SuperObject
 {
-    public OBJRAM()
+    public OBJSpeedBoost()
     {
         name = "RAM";
         try
