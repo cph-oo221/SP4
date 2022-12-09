@@ -27,11 +27,15 @@ public class AssetSetter
         gp.obj[3].worldX = 38 * gp.tileSize;
         gp.obj[3].worldY = 40 * gp.tileSize;
 
+    }
 
-        gp.obj[4] = new OBJRam();
-        gp.obj[4].worldX = 15 * gp.tileSize;
-        gp.obj[4].worldY = 25 * gp.tileSize;
-
-
+    public void setNewObject()
+    {
+        if(gp.obj[2] == null && gp.player.hasTicket == 1 && gp.winCount==0)
+        {
+            gp.obj[4] = new OBJRam();
+            gp.obj[4].worldX = 15 * gp.tileSize;
+            gp.obj[4].worldY = 25 * gp.tileSize;
+        }
     }
 }
