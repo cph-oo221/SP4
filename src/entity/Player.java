@@ -144,7 +144,7 @@ public class Player extends Entity{
                         hasTicket--;
                     }
                     break;
-                case "RAM" :
+                case "SpeedBoost" :
                     speed += 2;
                     gp.obj[i] = null;
             }

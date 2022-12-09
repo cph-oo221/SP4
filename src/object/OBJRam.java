@@ -11,7 +11,8 @@ public class OBJRam extends SuperObject
         name = "Sign";
         try
         {
-            image = ImageIO.read(getClass().getResourceAsStream("/objects/JesperFrontSmoke1.png"));
+            image = ImageIO.read(getClass().getResourceAsStream("/objects/Ram1.png"));
+
         }
         catch (IOException e)
         {
