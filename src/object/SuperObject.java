@@ -42,4 +42,8 @@ public class SuperObject
 
     }
 
+    public void interact()
+    {
+        System.out.println( "This is: " + name);
+    }
 }

@@ -13,7 +13,7 @@ public class Player extends Entity{
 
 
     GamePanel gp;
-    KeyHandler keyH;
+     public KeyHandler keyH;
 
     public final int screenX;
     public final int screenY;
@@ -73,17 +73,18 @@ public class Player extends Entity{
             {
                 direction = "up";
 
-            } else if (keyH.downPressed)
+            } if (keyH.downPressed)
             {
                 direction = "down";
 
-            } else if (keyH.leftPressed)
+            } if (keyH.leftPressed)
             {
                 direction = "left";
 
-            } else if (keyH.rightPressed)
+            } if (keyH.rightPressed)
             {
                 direction = "right";
+
             }
 
             //CHECK TILE COLLISION
@@ -92,7 +93,17 @@ public class Player extends Entity{
 
             //CHECK OBJECT COLLISION
             int objectIndex = gp.cChecker.checkObject(this, true);
+
+            if (keyH.ePressed)
+            {
+                if (objectIndex!= 999)
+                {
+                    gp.obj[objectIndex].interact();
+                }
+            }
+
             pickUpObject(objectIndex);
+
 
             //IF COLLISION IS FALSE, PLAYER CAN MOVE
             if(collisionOn == false)
@@ -121,6 +132,7 @@ public class Player extends Entity{
         }
 
     }
+
 
     public void pickUpObject(int i)
     {
@@ -154,6 +166,7 @@ public class Player extends Entity{
     public void draw(Graphics2D g2)
         {
             BufferedImage image = null;
+            BufferedImage last = null;
             switch (direction)
             {
                 case "up":
@@ -164,6 +177,7 @@ public class Player extends Entity{
                     {
                         image = up2;
                     }
+                    last = image;
                     break;
 
                 case "down":
@@ -174,6 +188,7 @@ public class Player extends Entity{
                     {
                         image = down2;
                     }
+                    last = image;
                     break;
 
 
@@ -185,6 +200,7 @@ public class Player extends Entity{
                     {
                         image = left2;
                     }
+                    last = image;
                     break;
 
                 case "right":
@@ -195,6 +211,7 @@ public class Player extends Entity{
                     {
                         image = right2;
                     }
+                    last = image;
                     break;
             }
 
