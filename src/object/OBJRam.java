@@ -3,18 +3,21 @@ package object;
 import javax.imageio.ImageIO;
 import java.io.IOException;
 
-public class OBJSpeedBoost extends SuperObject
+public class OBJRam extends SuperObject
 {
-    public OBJSpeedBoost()
+
+    public OBJRam()
     {
-        name = "SpeedBoost";
+        name = "RAM";
         try
         {
-            image = ImageIO.read(getClass().getResourceAsStream("/objects/Temp.png"));
+            image = ImageIO.read(getClass().getResourceAsStream("/objects/Ram1.png"));
+
         }
         catch (IOException e)
         {
             e.printStackTrace();
         }
+        collision=false;
     }
 }

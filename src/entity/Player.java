@@ -174,7 +174,20 @@ public class Player extends Entity{
                     gp.playSE(1);
                     gp.obj[i] = null;
                     break;
+                case "RAM" :
+                    hasTicket++;
+                    gp.playSE(1);
+                    gp.obj[i] = null;
+                    break;
                 case "Computer" :
+                    if(hasTicket > 0)
+                    {
+                        gp.playSE(2);
+
+                        hasTicket--;
+                        // computer wincount ++
+                        gp.countWinPoints();
+                    }
                     break;
                 case "Sign" :
                     if(hasTicket > 0)
@@ -184,7 +197,7 @@ public class Player extends Entity{
                         hasTicket--;
                     }
                     break;
-                case "RAM" :
+                case "SpeedBoost" :
                     speed += 2;
                     gp.obj[i] = null;
             }
