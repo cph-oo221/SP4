@@ -24,7 +24,7 @@ public class TileManager
 
         getTileImage();
 
-        loadMap("/maps/WorldMap1.txt");
+        loadMap("/maps/DT.txt");
     }
 
     public void getTileImage() {
@@ -59,8 +59,11 @@ public class TileManager
             tiles[8].image = ImageIO.read(getClass().getResourceAsStream("/tiles/Water.png"));
             tiles[8].collision = true;
 
+            /*tiles[9] = new Tile();
+            tiles[9].image = ImageIO.read(getClass().getResourceAsStream("/tiles/Path.png"));*/
+
             tiles[9] = new Tile();
-            tiles[9].image = ImageIO.read(getClass().getResourceAsStream("/tiles/Path.png"));
+            tiles[9].image = ImageIO.read(getClass().getResourceAsStream("/tiles/woodPlanks.png"));
 
 
         } catch (IOException e) {
