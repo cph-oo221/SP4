@@ -3,20 +3,24 @@ package object;
 import javax.imageio.ImageIO;
 import java.io.IOException;
 
-public class OBJComputer extends SuperObject {
+public class OBJComputer extends SuperObject
+{
 
 
-    public OBJComputer() {
+    public OBJComputer()
+    {
         super.solidArea.height = 30;
         name = "Computer";
-        try {
+        try
+        {
             image = ImageIO.read(getClass().getResourceAsStream("/objects/Computer.png"));
-        } catch (IOException e) {
+        }
+        catch (IOException e)
+        {
             e.printStackTrace();
         }
-            collision = true;
+        collision = true;
     }
-
 
 
 }
