@@ -62,7 +62,7 @@ public class GamePanel extends JPanel implements Runnable{
     public void setupGame()
     {
         aSetter.setObject();
-        playMusic(2);
+        playMusic(0);
     }
 
     public void startGameThread()
@@ -115,6 +115,14 @@ public class GamePanel extends JPanel implements Runnable{
 
     public void update(){
         player.update();
+        try
+        {
+            player.interact();
+        }
+        catch (ArrayIndexOutOfBoundsException e)
+        {
+            System.out.println("Der er intet object her");
+        }
         aSetter.setNewObject();
     }
 
@@ -176,5 +184,11 @@ public class GamePanel extends JPanel implements Runnable{
         {
             System.out.println("YOU WON THE GAME");
         }
+    }
+
+    public void objectInteraction(int index)
+    {
+        obj[index].interact();
+
     }
 }

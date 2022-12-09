@@ -19,4 +19,8 @@ public class OBJTicket extends SuperObject{
             e.printStackTrace();
         }
     }
+    public void interact()
+    {
+        System.out.println("No interaction here");
+    }
 }

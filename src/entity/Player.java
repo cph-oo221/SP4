@@ -22,11 +22,19 @@ public class Player extends Entity{
     int tileSize;
 
     public Rectangle interactTangleUp = new Rectangle();
+    public int TangleUpDefaultX;
+    public int TangleUpDefaultY;
     public Rectangle interactTangleDown = new Rectangle();
+    public int TangleDownDefaultX;
+    public int TangleDownDefaultY;
     public Rectangle interactTangleLeft = new Rectangle();
+    public int TangleLeftDefaultX;
+    public int TangleLeftDefaultY;
     public Rectangle interactTangleRight = new Rectangle();
+    public int TangleRightDefaultX;
+    public int TangleRightDefaultY;
 
-    public String activeRect;
+    public Rectangle activeRect;
 
     public Player(GamePanel gp, KeyHandler keyH)
     {
@@ -48,24 +56,31 @@ public class Player extends Entity{
 
         interactTangleUp.x = (screenX);
         interactTangleUp.y = (screenY-tileSize);
+        TangleUpDefaultX = interactTangleUp.x;
+        TangleUpDefaultY = interactTangleUp.y;
         interactTangleUp.width = (tileSize);
         interactTangleUp.height = (2*tileSize);
 
         interactTangleDown.x = (screenX);
         interactTangleDown.y = (screenY);
+        TangleUpDefaultX = interactTangleDown.x;
+        TangleUpDefaultY = interactTangleDown.y;
         interactTangleDown.width = (tileSize);
         interactTangleDown.height = (2*tileSize);
 
         interactTangleLeft.x = (screenX-tileSize);
         interactTangleLeft.y = (screenY);
+        TangleUpDefaultX = interactTangleLeft.x;
+        TangleUpDefaultY = interactTangleLeft.y;
         interactTangleLeft.width = (2*tileSize);
         interactTangleLeft.height = (tileSize);
 
         interactTangleRight.x = (screenX);
         interactTangleRight.y = (screenY);
+        TangleUpDefaultX = interactTangleRight.x;
+        TangleUpDefaultY = interactTangleRight.y;
         interactTangleRight.width = (2*tileSize);
         interactTangleRight.height = (tileSize);
-
 
 
         setDefaulValues();
@@ -92,7 +107,8 @@ public class Player extends Entity{
             e.printStackTrace();
         }
     }
-    public void setDefaulValues () {
+    public void setDefaulValues ()
+    {
         worldX = gp.tileSize * 36;
         worldY = gp.tileSize * 8;
         speed = 4;
@@ -128,10 +144,10 @@ public class Player extends Entity{
 
             switch (direction)
             {
-                case "up" : activeRect = "up";break;
-                case "down" : activeRect = "down"; break;
-                case "left" : activeRect = "left"; break;
-                case "right" : activeRect = "right"; break;
+                case "up" : activeRect = interactTangleUp;break;
+                case "down" : activeRect = interactTangleDown; break;
+                case "left" : activeRect = interactTangleLeft; break;
+                case "right" : activeRect = interactTangleRight; break;
             }
 
             //IF COLLISION IS FALSE, PLAYER CAN MOVE
@@ -160,6 +176,33 @@ public class Player extends Entity{
             }
         }
 
+    }
+
+    public void interact()
+    {
+        if (keyH.ePressed)
+        {
+            System.out.println("Du trykker E");
+            int index = checkObjectInteract(this);
+            System.out.println(index);
+            gp.objectInteraction(index);
+        }
+    }
+
+    public int checkObjectInteract(Player player)
+    {
+        int index = 999;
+        for (int i = 0; i < gp.obj.length - 1; i++)
+        {
+            if (gp.obj[i] != null && activeRect != null)
+            {
+                if (activeRect.intersects(gp.obj[i].solidArea))
+                {
+                    index = i;
+                }
+            }
+        }
+        return index;
     }
 
     public void pickUpObject(int i)

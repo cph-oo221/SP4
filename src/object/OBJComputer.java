@@ -17,6 +17,10 @@ public class OBJComputer extends SuperObject {
             collision = true;
     }
 
+    @Override
+    public void interact()
+    {
+        System.out.println("This needs an interaction");
 
-
+    }
 }

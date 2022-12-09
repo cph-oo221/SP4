@@ -18,4 +18,10 @@ public class OBJSign extends SuperObject{
         }
         collision=true;
     }
+
+    @Override
+    public void interact()
+    {
+        System.out.println("Dette er Jesper");
+    }
 }

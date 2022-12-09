@@ -5,15 +5,15 @@ import main.GamePanel;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 
-public class SuperObject
+public abstract class SuperObject
 {
     public GamePanel gp;
     public BufferedImage image;
     public String name;
     public boolean collision = false;
     public int worldX, worldY;
-    public int solidAreaW = 48;
-    public int solidAreaH = 48;
+    public int solidAreaW = gp.tileSize;
+    public int solidAreaH = gp.tileSize;
     public int solidAreaX = 1;
     public int solidAreaY = 1;
     public int solidAreaDefaultX = 0;
@@ -25,6 +25,7 @@ public class SuperObject
     }
 
 
+    public abstract void interact();
 
     public void draw(Graphics2D g2, GamePanel gp)
     {

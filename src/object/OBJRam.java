@@ -20,4 +20,8 @@ public class OBJRam extends SuperObject
         }
         collision=false;
     }
+    public void interact()
+    {
+        System.out.println("No interaction here");
+    }
 }
