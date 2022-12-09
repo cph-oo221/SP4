@@ -140,6 +140,12 @@ public class Player extends Entity{
                     gp.obj[i] = null;
                     break;
                 case "Computer" :
+                    if(hasTicket > 0)
+                    {
+                        gp.playSE(2);
+
+                        hasTicket--;
+                    }
                     break;
                 case "Sign" :
                     if(hasTicket > 0)
