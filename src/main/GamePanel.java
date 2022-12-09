@@ -60,7 +60,7 @@ public class GamePanel extends JPanel implements Runnable{
     public void setupGame()
     {
         aSetter.setObject();
-        playMusic(3);
+        playMusic(2);
     }
 
     public void startGameThread()
