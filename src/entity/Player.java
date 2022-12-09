@@ -15,15 +15,24 @@ public class Player extends Entity{
     GamePanel gp;
     KeyHandler keyH;
 
-    public final int screenX;
-    public final int screenY;
+    public int screenX;
+    public int screenY;
     public int hasTicket;
 
+    int tileSize;
+
+    public Rectangle interactTangleUp = new Rectangle();
+    public Rectangle interactTangleDown = new Rectangle();
+    public Rectangle interactTangleLeft = new Rectangle();
+    public Rectangle interactTangleRight = new Rectangle();
+
+    public String activeRect;
 
     public Player(GamePanel gp, KeyHandler keyH)
     {
         this.gp = gp;
         this.keyH = keyH;
+        tileSize = gp.tileSize;
 
         screenX = gp.screenWidth/2 - (gp.tileSize/2);
         screenY = gp.screenHeight/2 - (gp.tileSize/2);
@@ -35,6 +44,29 @@ public class Player extends Entity{
         solidAreaDefaultY = solidArea.y;
         solidArea.width = (int) (gp.tileSize*0.4);
         solidArea.height = (int) (gp.tileSize*0.6);
+
+
+        interactTangleUp.x = (screenX);
+        interactTangleUp.y = (screenY-tileSize);
+        interactTangleUp.width = (tileSize);
+        interactTangleUp.height = (2*tileSize);
+
+        interactTangleDown.x = (screenX);
+        interactTangleDown.y = (screenY);
+        interactTangleDown.width = (tileSize);
+        interactTangleDown.height = (2*tileSize);
+
+        interactTangleLeft.x = (screenX-tileSize);
+        interactTangleLeft.y = (screenY);
+        interactTangleLeft.width = (2*tileSize);
+        interactTangleLeft.height = (tileSize);
+
+        interactTangleRight.x = (screenX);
+        interactTangleRight.y = (screenY);
+        interactTangleRight.width = (2*tileSize);
+        interactTangleRight.height = (tileSize);
+
+
 
         setDefaulValues();
         getPlayerImage();
@@ -93,6 +125,14 @@ public class Player extends Entity{
             //CHECK OBJECT COLLISION
             int objectIndex = gp.cChecker.checkObject(this, true);
             pickUpObject(objectIndex);
+
+            switch (direction)
+            {
+                case "up" : activeRect = "up";break;
+                case "down" : activeRect = "down"; break;
+                case "left" : activeRect = "left"; break;
+                case "right" : activeRect = "right"; break;
+            }
 
             //IF COLLISION IS FALSE, PLAYER CAN MOVE
             if(collisionOn == false)
