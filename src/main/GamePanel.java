@@ -102,6 +102,9 @@ public class GamePanel extends JPanel implements Runnable{
             }
             if (timer >= 1000000000) {
                 System.out.println("FPS : " + drawCount);
+                System.out.println("ActiveRect: "+player.activeRect);
+                System.out.println("X: "+player.worldX/tileSize);
+                System.out.println("Y: "+player.worldY/tileSize);
                 drawCount = 0;
                 timer = 0;
             }
@@ -110,7 +113,6 @@ public class GamePanel extends JPanel implements Runnable{
 
     public void update(){
         player.update();
-        System.out.println(player.activeRect);
     }
 
     public void paintComponent(Graphics g){
