@@ -7,7 +7,7 @@ public class OBJSpeedBoost extends SuperObject
 {
     public OBJSpeedBoost()
     {
-        name = "RAM";
+        name = "SpeedBoost";
         try
         {
             image = ImageIO.read(getClass().getResourceAsStream("/objects/Temp.png"));
