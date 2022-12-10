@@ -3,8 +3,14 @@ package main;
 import entity.Player;
 import tile.TileManager;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
+
 import object.SuperObject;
 public class GamePanel extends JPanel implements Runnable{
 
@@ -175,6 +181,80 @@ public class GamePanel extends JPanel implements Runnable{
         if(winCount == 2)
         {
             System.out.println("YOU WON THE GAME");
+            victoryScreen();
         }
+    }
+
+    public Image victoryScreen()
+    {
+        //TODO: VICTORY SCREEN
+        //TODO: RESTART GAME with a button
+        //TODO: EXIT GAME with a button
+        //TODO: bug fix, the screen flickers when you win.
+
+        changeScreen();
+
+        BufferedImage img = null;
+        try
+        {
+            img = ImageIO.read(getClass().getResourceAsStream("/tiles/winScreen.png"));
+        }
+        catch (IOException o)
+        {
+            o.printStackTrace();
+        }
+        Graphics2D g2 = (Graphics2D) getGraphics();
+
+        // Draw image, victory screen
+        g2.drawImage(img, 0, 0, screenWidth, screenHeight, null);
+
+        // Draw text, "You won the game"
+        g2.setFont(new Font("Arial" , Font.BOLD , 40));
+        g2.setColor(Color.white);
+        g2.drawString("You won the game!", 185 , 100);
+
+        exitGame();
+
+        // close the graphics
+        g2.dispose();
+
+        return img;
+    }
+
+    private void changeScreen()
+    {
+        // This makes the screen frame turn off visibility
+        this.setVisible(false);
+    }
+
+    public void restartGame()
+    {
+        JButton restart = new JButton("Restart");
+        restart.setBounds(200, 200, 100, 50);
+
+        restart.addActionListener(new ActionListener()
+        {
+            @Override
+            public void actionPerformed(ActionEvent e)
+            {
+
+            }
+        });
+    }
+
+    public void exitGame()
+    {
+        JButton exitGame = new JButton("Exit Game");
+        exitGame.setBounds(400, 200, 100, 50);
+        exitGame.addActionListener(new ActionListener()
+        {
+            @Override
+            public void actionPerformed(ActionEvent e)
+            {
+                // close game:
+                System.exit(0);
+            }
+        });
+
     }
 }
