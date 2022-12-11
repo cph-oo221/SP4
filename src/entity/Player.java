@@ -94,6 +94,8 @@ public class Player extends Entity{
             //CHECK OBJECT COLLISION
             int objectIndex = gp.cChecker.checkObject(this, true);
 
+
+            // INTERACTION ON COLLIDED OBJECT WiTH E PRESS
             if (keyH.ePressed)
             {
                 if (objectIndex!= 999)
