@@ -18,6 +18,8 @@ public abstract class SuperObject
     public int solidAreaY = 1;
     public int solidAreaDefaultX = 0;
     public int solidAreaDefaultY = 0;
+
+    public boolean pickUpAble = false;
     public Rectangle solidArea;
     public SuperObject()
     {
@@ -44,5 +46,10 @@ public abstract class SuperObject
     public void interact()
     {
         System.out.println( "This is: " + name);
+    }
+
+    public boolean isPickUpAble()
+    {
+        return pickUpAble;
     }
 }

@@ -18,10 +18,7 @@ public class OBJRam extends SuperObject
         {
             e.printStackTrace();
         }
-        collision=false;
-    }
-    public void interact()
-    {
-        System.out.println("No interaction here");
+        collision = false;
+        pickUpAble = true;
     }
 }

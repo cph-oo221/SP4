@@ -100,11 +100,19 @@ public class Player extends Entity{
             {
                 if (objectIndex!= 999)
                 {
-                    gp.obj[objectIndex].interact();
+                    if(gp.obj[objectIndex].isPickUpAble())
+                    {
+                        pickUpObject(objectIndex);
+                    }
+
+                    else
+                    {
+                        gp.obj[objectIndex].interact();
+                    }
                 }
             }
 
-            pickUpObject(objectIndex);
+            //pickUpObject(objectIndex);
 
             //IF COLLISION IS FALSE, PLAYER CAN MOVE
             if(collisionOn == false)

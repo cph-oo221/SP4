@@ -18,6 +18,7 @@ public class OBJTicket extends SuperObject{
         {
             e.printStackTrace();
         }
+        pickUpAble = true;
     }
     public void interact()
     {
