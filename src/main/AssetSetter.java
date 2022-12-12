@@ -11,31 +11,38 @@ public class AssetSetter
     }
     public void setObject()
     {
-        gp.obj[0]=new OBJComputer(this.gp);
-        gp.obj[0].worldX = 9 * gp.tileSize;
-        gp.obj[0].worldY = 24 * gp.tileSize;
+        int mapNum = 0;
+        gp.obj[mapNum][0] = new OBJComputer(this.gp);
+        gp.obj[mapNum][0].worldX = 9 * gp.tileSize;
+        gp.obj[mapNum][0].worldY = 24 * gp.tileSize;
 
-        gp.obj[1]=new OBJSign();
-        gp.obj[1].worldX = 41 * gp.tileSize;
-        gp.obj[1].worldY = 20 * gp.tileSize;
+        gp.obj[mapNum][1] = new OBJSign();
+        gp.obj[mapNum][1].worldX = 41 * gp.tileSize;
+        gp.obj[mapNum][1].worldY = 20 * gp.tileSize;
 
-        gp.obj[2] = new OBJGraphicsCard();
-        gp.obj[2].worldX = 8 * gp.tileSize;
-        gp.obj[2].worldY = 25 * gp.tileSize;
+        gp.obj[mapNum][2] = new OBJGraphicsCard();
+        gp.obj[mapNum][2].worldX = 8 * gp.tileSize;
+        gp.obj[mapNum][2].worldY = 25 * gp.tileSize;
 
-        gp.obj[3]=new OBJSpeedBoost();
-        gp.obj[3].worldX = 38 * gp.tileSize;
-        gp.obj[3].worldY = 40 * gp.tileSize;
+        gp.obj[mapNum][3] = new OBJSpeedBoost();
+        gp.obj[mapNum][3].worldX = 38 * gp.tileSize;
+        gp.obj[mapNum][3].worldY = 40 * gp.tileSize;
 
+        // if you want to add on map 1
+        /*int mapNum = 1;
+        gp.obj[mapNum][3] = new OBJSpeedBoost();
+        gp.obj[mapNum][3].worldX = 38 * gp.tileSize;
+        gp.obj[mapNum][3].worldY = 40 * gp.tileSize;*/
     }
 
     public void setNewObject()
     {
-        if(gp.obj[2] == null && gp.player.hasRAM == 0 && gp.winCount==1)
+        int mapNum = 0;
+        if(gp.obj[mapNum][2] == null && gp.player.hasRAM == 0 && gp.winCount==1)
         {
-            gp.obj[4] = new OBJRam();
-            gp.obj[4].worldX = 15 * gp.tileSize;
-            gp.obj[4].worldY = 25 * gp.tileSize;
+            gp.obj[mapNum][4] = new OBJRam();
+            gp.obj[mapNum][4].worldX = 15 * gp.tileSize;
+            gp.obj[mapNum][4].worldY = 25 * gp.tileSize;
         }
     }
 }

@@ -25,6 +25,12 @@ public class GamePanel extends JPanel implements Runnable{
     public final int maxWorldCol = 50;
     public final int maxWorldRow = 50;
 
+    // can ceate 10 different maps
+    public final int maxMap = 10;
+
+    // current map number
+    public int currentMap = 0;
+
     //FPS
     private int FPS = 60;
 
@@ -39,6 +45,8 @@ public class GamePanel extends JPanel implements Runnable{
     Sound music = new Sound();
     Sound se = new Sound();
 
+    EventHandler eventH = new EventHandler(this);
+
     public CollisionChecker cChecker = new CollisionChecker(this);
 
     public AssetSetter aSetter = new AssetSetter(this);
@@ -48,7 +56,7 @@ public class GamePanel extends JPanel implements Runnable{
 
     //ENTITY AND OBJECT
     public Player player = new Player(this, keyH);
-    public SuperObject obj[] = new SuperObject[10];
+    public SuperObject obj[][] = new SuperObject[maxMap][10];
 
 
 
@@ -117,6 +125,7 @@ public class GamePanel extends JPanel implements Runnable{
     public void update(){
         player.update();
         aSetter.setNewObject();
+        eventH.checkEvent();
     }
 
     public void paintComponent(Graphics g){
@@ -127,11 +136,11 @@ public class GamePanel extends JPanel implements Runnable{
         //TILE DRAWER
         tileM.draw(g2);
         //OBJECT DRAWER
-        for(int i = 0; i < obj.length; i++)
+        for(int i = 0; i < obj[currentMap].length; i++)
         {
-            if(obj[i] != null)
+            if(obj[currentMap][i] != null)
             {
-                obj[i].draw(g2,this);
+                obj[currentMap][i].draw(g2,this);
             }
         }
 
@@ -172,7 +181,7 @@ public class GamePanel extends JPanel implements Runnable{
 
     public void objectInteraction(int index)
     {
-        obj[index].interact();
+        obj[currentMap][index].interact();
 
     }
 

@@ -13,21 +13,21 @@ public class TileManager
 {
     GamePanel gp;
     public Tile[] tiles;
-    public int mapTileNum[][];
+    public int mapTileNum[][][];
 
     public TileManager(GamePanel gp) {
         this.gp = gp;
 
         tiles = new Tile[90];
 
-        mapTileNum = new int [gp.maxWorldCol] [gp.maxWorldRow];
+        mapTileNum = new int [gp.maxMap][gp.maxWorldCol] [gp.maxWorldRow];
 
         getTileImage();
 
         // Dungeon map: "/maps/DT.txt"
         // main hub map: "/maps/WorldMap1.txt"
-        loadMap("/maps/DT.txt");
-        //loadMap("/maps/WorldMap1.txt");
+        loadMap("/maps/WorldMap1.txt",0);
+        loadMap("/maps/DT.txt",1);
     }
 
     public void getTileImage() {
@@ -101,7 +101,7 @@ public class TileManager
         }
     }
 
-    public void loadMap(String filePath)
+    public void loadMap(String filePath, int map)
     {
         try
         {
@@ -121,7 +121,7 @@ public class TileManager
 
                     int num = Integer.parseInt(numbers[col]);
 
-                    mapTileNum[col][row] = num;
+                    mapTileNum[map][col][row] = num;
                     col++;
                 }
                 if(col == gp.maxWorldCol)
@@ -148,7 +148,7 @@ public class TileManager
         while (worldCol < gp.maxWorldCol && worldRow < gp.maxWorldRow)
         {
 
-            int tileNum = mapTileNum[worldCol][worldRow];
+            int tileNum = mapTileNum[gp.currentMap][worldCol][worldRow];
 
             //eg. world X = 0 * 16 ,, 1*16 ,, 2*16 ...
             int worldX = worldCol * gp.tileSize;

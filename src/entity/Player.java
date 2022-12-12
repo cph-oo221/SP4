@@ -130,16 +130,17 @@ public class Player extends Entity{
         }
         if (keyH.ePressed)
         {
-            if (currentCollison < gp.obj.length && gp.obj[currentCollison] != null && currentCollison!= 999)
+            // TODO gp.obj[1].length idk if [1] is correct
+            if (currentCollison < gp.obj[1].length && gp.obj[gp.currentMap][currentCollison] != null && currentCollison!= 999)
             {
-                if( gp.obj[currentCollison].isPickUpAble())
+                if( gp.obj[gp.currentMap][currentCollison].isPickUpAble())
                 {
                     pickUpObject(currentCollison);
                 }
 
                 else
                 {
-                    gp.obj[currentCollison].interact();
+                    gp.obj[gp.currentMap][currentCollison].interact();
                 }
             }
         }
@@ -150,22 +151,22 @@ public class Player extends Entity{
     {
         if (i != 999)
         {
-            String objectName = gp.obj[i].name;
+            String objectName = gp.obj[gp.currentMap][i].name;
             switch(objectName)
             {
                 case "Graphics Card" :
                     hasGraphicsCard++;
                     gp.playSE(1);
-                    gp.obj[i] = null;
+                    gp.obj[gp.currentMap][i] = null;
                     break;
                 case "RAM" :
                     hasRAM++;
                     gp.playSE(1);
-                    gp.obj[i] = null;
+                    gp.obj[gp.currentMap][i] = null;
                     break;
                 case "SpeedBoost" :
                     speed += 2;
-                    gp.obj[i] = null;
+                    gp.obj[gp.currentMap][i] = null;
             }
         }
 
