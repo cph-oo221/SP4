@@ -12,8 +12,8 @@ public abstract class SuperObject
     public String name;
     public boolean collision = false;
     public int worldX, worldY;
-    public int solidAreaW = gp.tileSize;
-    public int solidAreaH = gp.tileSize;
+    public int solidAreaW = 48;
+    public int solidAreaH = 48;
     public int solidAreaX = 1;
     public int solidAreaY = 1;
     public int solidAreaDefaultX = 0;
@@ -24,8 +24,6 @@ public abstract class SuperObject
         this.solidArea = new Rectangle(solidAreaX,solidAreaY,solidAreaW,solidAreaH);
     }
 
-
-    public abstract void interact();
 
     public void draw(Graphics2D g2, GamePanel gp)
     {
