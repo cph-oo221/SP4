@@ -23,7 +23,7 @@ public class EventHandler
 
     public void checkEvent()
     {
-        if(hit(42,10,"any") == true)
+        if(hit(42,9,"any") == true) // Ændrede eventRow fra 10 til 9. tror måske det var out of bounds?
         {
             // event happens
             teleport();
@@ -43,8 +43,8 @@ public class EventHandler
 
         gp.player.solidArea.x = gp.player.worldX + gp.player.solidArea.x;
         gp.player.solidArea.y = gp.player.worldY + gp.player.solidArea.y;
-        eventRect.x = eventCol * gp.tileSize + gp.player.solidArea.x;
-        eventRect.y = eventCol * gp.tileSize + gp.player.solidArea.y;
+        eventRect.x = eventCol * gp.tileSize + eventRect.x; // Ændrede gp.player.solidArea.x til eventRect.x
+        eventRect.y = eventRow * gp.tileSize + eventRect.y; // Ændrede eventCol til eventRow og gp.player.solidArea.y til eventrect.y
 
         if(gp.player.solidArea.intersects(eventRect))
         {
