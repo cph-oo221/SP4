@@ -26,7 +26,7 @@ public class TileManager
 
         // Dungoen map: "/maps/DT.txt"
         // main hub map: "/maps/WorldMap1.txt"
-        loadMap("/maps/DT.txt");
+        loadMap("/maps/WorldMap1.txt");
     }
 
     public void getTileImage() {
@@ -90,6 +90,9 @@ public class TileManager
             tiles[13] = new Tile();
             tiles[13].image = ImageIO.read(getClass().getResourceAsStream("/tiles/Cobblestone.png"));
 
+            // Dungeon Door
+            tiles[14] = new Tile();
+            tiles[14].image = ImageIO.read(getClass().getResourceAsStream("/tiles/DungeonDoorRotateRight.png"));
 
 
         } catch (IOException e) {
