@@ -174,4 +174,9 @@ public class GamePanel extends JPanel implements Runnable{
         obj[index].interact();
 
     }
+
+    public void checkComputer()
+    {
+
+    }
 }

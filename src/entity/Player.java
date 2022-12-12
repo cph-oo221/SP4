@@ -19,7 +19,7 @@ public class Player extends Entity{
     public final int screenY;
     public int hasTicket;
 
-    public int currentCollison;
+    public int currentCollison = 999;
 
 
     public Player(GamePanel gp, KeyHandler keyH)
@@ -66,7 +66,7 @@ public class Player extends Entity{
     {
         worldX = gp.tileSize * 36;
         worldY = gp.tileSize * 8;
-        speed = 4;
+        speed = 6;
         direction="up";
     }
     public void update(){
@@ -161,16 +161,6 @@ public class Player extends Entity{
                     hasTicket++;
                     gp.playSE(1);
                     gp.obj[i] = null;
-                    break;
-                case "Computer" :
-                    if(hasTicket > 0)
-                    {
-                        gp.playSE(2);
-
-                        hasTicket--;
-                        // computer wincount ++
-                        gp.countWinPoints();
-                    }
                     break;
                 case "Sign" :
                     if(hasTicket > 0)

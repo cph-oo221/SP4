@@ -1,12 +1,14 @@
 package object;
 
+import main.GamePanel;
+
 import javax.imageio.ImageIO;
 import java.io.IOException;
 
 public class OBJComputer extends SuperObject {
-
-
-    public OBJComputer() {
+    GamePanel gp;
+    public OBJComputer(GamePanel gp) {
+        this.gp = gp;
         super.solidArea.height = 30;
         name = "Computer";
         try {
@@ -20,7 +22,15 @@ public class OBJComputer extends SuperObject {
     @Override
     public void interact()
     {
-        System.out.println("This needs an interaction");
-
+        if(gp.player.hasTicket > 0)
+        {
+            System.out.println("you put in " + gp.player.hasTicket + " tickets.");
+            gp.playSE(2);
+            gp.player.hasTicket--;
+            // computer wincount ++
+            gp.countWinPoints();
+        }
+        System.out.println("This is your computer");
+        gp.checkComputer();
     }
 }

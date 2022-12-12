@@ -21,6 +21,7 @@ public abstract class SuperObject
 
     public boolean pickUpAble = false;
     public Rectangle solidArea;
+
     public SuperObject()
     {
         this.solidArea = new Rectangle(solidAreaX,solidAreaY,solidAreaW,solidAreaH);
