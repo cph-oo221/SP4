@@ -6,10 +6,9 @@ import tile.TileManager;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
+
 
 import object.SuperObject;
 public class GamePanel extends JPanel implements Runnable{
@@ -181,17 +180,12 @@ public class GamePanel extends JPanel implements Runnable{
         if(winCount == 2)
         {
             System.out.println("YOU WON THE GAME");
-            victoryScreen();
+            endgame();
         }
     }
 
     public Image victoryScreen()
     {
-        //TODO: VICTORY SCREEN
-        //TODO: RESTART GAME with a button
-        //TODO: EXIT GAME with a button
-        //TODO: bug fix, the screen flickers when you win.
-
         changeScreen();
 
         BufferedImage img = null;
@@ -208,12 +202,14 @@ public class GamePanel extends JPanel implements Runnable{
         // Draw image, victory screen
         g2.drawImage(img, 0, 0, screenWidth, screenHeight, null);
 
+
         // Draw text, "You won the game"
         g2.setFont(new Font("Arial" , Font.BOLD , 40));
         g2.setColor(Color.white);
         g2.drawString("You won the game!", 185 , 100);
 
-        exitGame();
+        restartGame(g2);
+        exitGame(g2);
 
         // close the graphics
         g2.dispose();
@@ -223,38 +219,49 @@ public class GamePanel extends JPanel implements Runnable{
 
     private void changeScreen()
     {
-        // This makes the screen frame turn off visibility
         this.setVisible(false);
     }
 
-    public void restartGame()
+    public void restartGame(Graphics2D g2)
     {
-        JButton restart = new JButton("Restart");
-        restart.setBounds(200, 200, 100, 50);
+        g2.setFont(new Font("Arial" , Font.BOLD , 20));
+        g2.setColor(Color.white);
+        g2.drawString("Press enter to restart", 200 , 200);
 
-        restart.addActionListener(new ActionListener()
+        if(keyH.enterPressed)
         {
-            @Override
-            public void actionPerformed(ActionEvent e)
-            {
-
-            }
-        });
+            System.out.println("Restarting game");
+        }
     }
 
-    public void exitGame()
+    public void exitGame(Graphics2D g2)
     {
-        JButton exitGame = new JButton("Exit Game");
-        exitGame.setBounds(400, 200, 100, 50);
-        exitGame.addActionListener(new ActionListener()
-        {
-            @Override
-            public void actionPerformed(ActionEvent e)
-            {
-                // close game:
-                System.exit(0);
-            }
-        });
+        // Draw text, "Exit game"
+        g2.setFont(new Font("Arial" , Font.BOLD , 20));
+        g2.setColor(Color.white);
+        g2.drawString("Press escape to exit", 200 , 250);
 
+        // Exit the game
+        if (keyH.escapePressed)
+        {
+            System.out.println("Exiting game");
+            System.exit(0);
+        }
+    }
+
+    public void endgame()
+    {
+        // close the old game
+        gameThread = null;
+        // open the victory screen
+        JFrame frame = new JFrame("Endgame");
+        frame.setSize(screenWidth,screenHeight);
+        frame.setLayout(new BorderLayout());
+        JPanel panel = new JPanel();
+        frame.add(panel);
+
+        JButton exit = new JButton("Exit");
+        panel.add(exit);
+        frame.setVisible(true);
     }
 }

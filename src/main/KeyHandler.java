@@ -6,6 +6,28 @@ import java.awt.event.KeyListener;
 public class KeyHandler implements KeyListener {
 
     public boolean upPressed, downPressed, leftPressed, rightPressed;
+    public boolean enterPressed, escapePressed;
+
+    public void enterPressed(KeyEvent e)
+    {
+        int code = e.getKeyCode();
+
+        if (code == KeyEvent.VK_ENTER)
+        {
+            enterPressed = true;
+        }
+    }
+
+    public void escapePressed(KeyEvent e)
+    {
+        int code = e.getKeyCode();
+
+        if (code == KeyEvent.VK_ESCAPE)
+        {
+            escapePressed = true;
+        }
+    }
+
 
     @Override
     public void keyTyped(KeyEvent e) {

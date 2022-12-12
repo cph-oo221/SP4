@@ -24,7 +24,7 @@ public class TileManager
 
         getTileImage();
 
-        loadMap("/maps/DT.txt");
+        loadMap("/maps/WorldMap1.txt");
     }
 
     public void getTileImage() {
