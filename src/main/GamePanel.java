@@ -180,7 +180,6 @@ public class GamePanel extends JPanel implements Runnable{
         if(winCount == 2)
         {
             System.out.println("YOU WON THE GAME");
-            endgame();
         }
     }
 
