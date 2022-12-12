@@ -24,6 +24,8 @@ public class TileManager
 
         getTileImage();
 
+        // Dungoen map: "/maps/DT.txt"
+        // main hub map: "/maps/WorldMap1.txt"
         loadMap("/maps/WorldMap1.txt");
     }
 
@@ -80,7 +82,7 @@ public class TileManager
             tiles[11].image = ImageIO.read(getClass().getResourceAsStream("/tiles/Water.png"));
             tiles[11].collision = true;
 
-            // fire
+            // Fire
             tiles[12] = new Tile();
             tiles[12].image = ImageIO.read(getClass().getResourceAsStream("/tiles/fire.png"));
 
