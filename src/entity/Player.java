@@ -19,6 +19,8 @@ public class Player extends Entity{
     public final int screenY;
     public int hasTicket;
 
+    public int currentCollison;
+
 
     public Player(GamePanel gp, KeyHandler keyH)
     {
@@ -92,25 +94,11 @@ public class Player extends Entity{
             gp.cChecker.checkTile(this);
 
             //CHECK OBJECT COLLISION
-            int objectIndex = gp.cChecker.checkObject(this, true);
+            currentCollison = gp.cChecker.checkObject(this, true);
 
 
             // INTERACTION ON COLLIDED OBJECT WiTH E PRESS
-            if (keyH.ePressed)
-            {
-                if (objectIndex!= 999)
-                {
-                    if(gp.obj[objectIndex].isPickUpAble())
-                    {
-                        pickUpObject(objectIndex);
-                    }
 
-                    else
-                    {
-                        gp.obj[objectIndex].interact();
-                    }
-                }
-            }
 
             //pickUpObject(objectIndex);
 
@@ -137,6 +125,21 @@ public class Player extends Entity{
                     spriteNumber = 1;
                 }
                 spriteCounter = 0;
+            }
+        }
+        if (keyH.ePressed)
+        {
+            if (currentCollison < gp.obj.length && gp.obj[currentCollison] != null && currentCollison!= 999)
+            {
+                if( gp.obj[currentCollison].isPickUpAble())
+                {
+                    pickUpObject(currentCollison);
+                }
+
+                else
+                {
+                    gp.obj[currentCollison].interact();
+                }
             }
         }
 

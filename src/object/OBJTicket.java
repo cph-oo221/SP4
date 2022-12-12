@@ -12,7 +12,7 @@ public class OBJTicket extends SuperObject{
 
         try
         {
-            image = ImageIO.read(getClass().getResourceAsStream("/objects/ticket.png"));
+            image = ImageIO.read(getClass().getResourceAsStream("/objects/ComputerDel.png"));
         }
         catch (IOException e)
         {
