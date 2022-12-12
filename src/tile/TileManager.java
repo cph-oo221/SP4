@@ -24,7 +24,7 @@ public class TileManager
 
         getTileImage();
 
-        loadMap("/maps/DT.txt");
+        loadMap("/maps/WorldMap1.txt");
     }
 
     public void getTileImage() {
@@ -83,6 +83,10 @@ public class TileManager
             // fire
             tiles[12] = new Tile();
             tiles[12].image = ImageIO.read(getClass().getResourceAsStream("/tiles/fire.png"));
+
+            // Cobblestone
+            tiles[13] = new Tile();
+            tiles[13].image = ImageIO.read(getClass().getResourceAsStream("/tiles/Cobblestone.png"));
 
 
 
