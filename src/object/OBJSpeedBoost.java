@@ -7,7 +7,7 @@ public class OBJSpeedBoost extends SuperObject
 {
     public OBJSpeedBoost()
     {
-        name = "RAM";
+        name = "SpeedBoost";
         try
         {
             image = ImageIO.read(getClass().getResourceAsStream("/objects/Temp.png"));
@@ -16,5 +16,11 @@ public class OBJSpeedBoost extends SuperObject
         {
             e.printStackTrace();
         }
+    }
+
+    @Override
+    public void interact()
+    {
+        System.out.println("No interact here");
     }
 }

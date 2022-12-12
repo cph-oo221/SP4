@@ -1,23 +1,24 @@
 package object;
 
-//PLACEHOLDER
-
 import javax.imageio.ImageIO;
 import java.io.IOException;
 
-public class OBJTicket extends SuperObject{
-    public OBJTicket()
-    {
-        name = "Temp";
+public class OBJRam extends SuperObject
+{
 
+    public OBJRam()
+    {
+        name = "RAM";
         try
         {
-            image = ImageIO.read(getClass().getResourceAsStream("/objects/ticket.png"));
+            image = ImageIO.read(getClass().getResourceAsStream("/objects/Ram1.png"));
+
         }
         catch (IOException e)
         {
             e.printStackTrace();
         }
+        collision=false;
     }
     public void interact()
     {

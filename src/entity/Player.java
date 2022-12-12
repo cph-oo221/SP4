@@ -60,7 +60,8 @@ public class Player extends Entity{
             e.printStackTrace();
         }
     }
-    public void setDefaulValues () {
+    public void setDefaulValues ()
+    {
         worldX = gp.tileSize * 36;
         worldY = gp.tileSize * 8;
         speed = 4;
@@ -73,18 +74,17 @@ public class Player extends Entity{
             {
                 direction = "up";
 
-            } if (keyH.downPressed)
+            } else if (keyH.downPressed)
             {
                 direction = "down";
 
-            } if (keyH.leftPressed)
+            } else if (keyH.leftPressed)
             {
                 direction = "left";
 
-            } if (keyH.rightPressed)
+            } else if (keyH.rightPressed)
             {
                 direction = "right";
-
             }
 
             //CHECK TILE COLLISION
@@ -105,7 +105,6 @@ public class Player extends Entity{
             }
 
             pickUpObject(objectIndex);
-
 
             //IF COLLISION IS FALSE, PLAYER CAN MOVE
             if(collisionOn == false)
@@ -135,7 +134,6 @@ public class Player extends Entity{
 
     }
 
-
     public void pickUpObject(int i)
     {
         if (i != 999)
@@ -148,7 +146,20 @@ public class Player extends Entity{
                     gp.playSE(1);
                     gp.obj[i] = null;
                     break;
+                case "RAM" :
+                    hasTicket++;
+                    gp.playSE(1);
+                    gp.obj[i] = null;
+                    break;
                 case "Computer" :
+                    if(hasTicket > 0)
+                    {
+                        gp.playSE(2);
+
+                        hasTicket--;
+                        // computer wincount ++
+                        gp.countWinPoints();
+                    }
                     break;
                 case "Sign" :
                     if(hasTicket > 0)
@@ -158,7 +169,7 @@ public class Player extends Entity{
                         hasTicket--;
                     }
                     break;
-                case "RAM" :
+                case "SpeedBoost" :
                     speed += 2;
                     gp.obj[i] = null;
             }
@@ -168,7 +179,6 @@ public class Player extends Entity{
     public void draw(Graphics2D g2)
         {
             BufferedImage image = null;
-            BufferedImage last = null;
             switch (direction)
             {
                 case "up":
@@ -179,7 +189,6 @@ public class Player extends Entity{
                     {
                         image = up2;
                     }
-                    last = image;
                     break;
 
                 case "down":
@@ -190,7 +199,6 @@ public class Player extends Entity{
                     {
                         image = down2;
                     }
-                    last = image;
                     break;
 
 
@@ -202,7 +210,6 @@ public class Player extends Entity{
                     {
                         image = left2;
                     }
-                    last = image;
                     break;
 
                 case "right":
@@ -213,7 +220,6 @@ public class Player extends Entity{
                     {
                         image = right2;
                     }
-                    last = image;
                     break;
             }
 
