@@ -24,7 +24,7 @@ public class TileManager
 
         getTileImage();
 
-        // Dungoen map: "/maps/DT.txt"
+        // Dungeon map: "/maps/DT.txt"
         // main hub map: "/maps/WorldMap1.txt"
         loadMap("/maps/DT.txt");
         //loadMap("/maps/WorldMap1.txt");
