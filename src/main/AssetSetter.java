@@ -19,7 +19,7 @@ public class AssetSetter
         gp.obj[1].worldX = 41 * gp.tileSize;
         gp.obj[1].worldY = 20 * gp.tileSize;
 
-        gp.obj[2] = new OBJTicket();
+        gp.obj[2] = new OBJGraphicsCard();
         gp.obj[2].worldX = 8 * gp.tileSize;
         gp.obj[2].worldY = 25 * gp.tileSize;
 
@@ -31,7 +31,7 @@ public class AssetSetter
 
     public void setNewObject()
     {
-        if(gp.obj[2] == null && gp.player.hasTicket == 1 && gp.winCount==0)
+        if(gp.obj[2] == null && gp.player.hasRAM == 0 && gp.winCount==1)
         {
             gp.obj[4] = new OBJRam();
             gp.obj[4].worldX = 15 * gp.tileSize;

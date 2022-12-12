@@ -22,13 +22,22 @@ public class OBJComputer extends SuperObject {
     @Override
     public void interact()
     {
-        if(gp.player.hasTicket > 0)
+        if(gp.player.hasRAM > 0)
         {
-            System.out.println("you put in " + gp.player.hasTicket + " tickets.");
+            System.out.println("you put in " + gp.player.hasRAM + " RAM.");
             gp.playSE(2);
-            gp.player.hasTicket--;
+            gp.player.hasRAM--;
             // computer wincount ++
             gp.countWinPoints();
+        }
+        if(gp.player.hasGraphicsCard > 0)
+        {
+            System.out.println("you put in " + gp.player.hasGraphicsCard + " Graphics Card.");
+            gp.playSE(2);
+            gp.player.hasGraphicsCard--;
+            // computer wincount ++
+            gp.countWinPoints();
+
         }
         System.out.println("This is your computer");
         gp.checkComputer();

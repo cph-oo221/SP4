@@ -17,7 +17,8 @@ public class Player extends Entity{
 
     public final int screenX;
     public final int screenY;
-    public int hasTicket;
+    public int hasRAM;
+    public int hasGraphicsCard;
 
     public int currentCollison = 999;
 
@@ -152,23 +153,15 @@ public class Player extends Entity{
             String objectName = gp.obj[i].name;
             switch(objectName)
             {
-                case "Temp" :
-                    hasTicket++;
+                case "Graphics Card" :
+                    hasGraphicsCard++;
                     gp.playSE(1);
                     gp.obj[i] = null;
                     break;
                 case "RAM" :
-                    hasTicket++;
+                    hasRAM++;
                     gp.playSE(1);
                     gp.obj[i] = null;
-                    break;
-                case "Sign" :
-                    if(hasTicket > 0)
-                    {
-                        gp.playSE(2);
-
-                        hasTicket--;
-                    }
                     break;
                 case "SpeedBoost" :
                     speed += 2;
