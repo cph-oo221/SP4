@@ -18,6 +18,7 @@ public class OBJRam extends SuperObject
         {
             e.printStackTrace();
         }
-        collision=false;
+        collision = false;
+        pickUpAble = true;
     }
 }

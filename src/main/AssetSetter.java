@@ -11,7 +11,7 @@ public class AssetSetter
     }
     public void setObject()
     {
-        gp.obj[0]=new OBJComputer();
+        gp.obj[0]=new OBJComputer(this.gp);
         gp.obj[0].worldX = 9 * gp.tileSize;
         gp.obj[0].worldY = 24 * gp.tileSize;
 

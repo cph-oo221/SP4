@@ -64,7 +64,7 @@ public class GamePanel extends JPanel implements Runnable{
     public void setupGame()
     {
         aSetter.setObject();
-        playMusic(2);
+        playMusic(0);
     }
 
     public void startGameThread()
@@ -106,7 +106,6 @@ public class GamePanel extends JPanel implements Runnable{
             }
             if (timer >= 1000000000) {
                 System.out.println("FPS : " + drawCount);
-                System.out.println("ActiveRect: "+player.activeRect);
                 System.out.println("X: "+player.worldX/tileSize);
                 System.out.println("Y: "+player.worldY/tileSize);
                 drawCount = 0;
@@ -117,6 +116,7 @@ public class GamePanel extends JPanel implements Runnable{
 
     public void update(){
         player.update();
+
         aSetter.setNewObject();
     }
 
@@ -135,7 +135,7 @@ public class GamePanel extends JPanel implements Runnable{
                 obj[i].draw(g2,this);
             }
         }
-        drawRectangle(g2);
+
         //PLAYER DRAWER
         player.draw(g2);
         ui.draw(g2);
@@ -144,15 +144,6 @@ public class GamePanel extends JPanel implements Runnable{
         g2.dispose();
     }
 
-    public void drawRectangle(Graphics2D g2)
-    {
-        Rectangle drawThis = player.interactTangleUp;
-        g2.setColor(Color.red);
-        g2.drawRect(player.interactTangleUp.x , player.interactTangleUp.y , player.interactTangleUp.width , player.interactTangleUp.height);
-        g2.drawRect(player.interactTangleDown.x , player.interactTangleDown.y , player.interactTangleDown.width , player.interactTangleDown.height);
-        g2.drawRect(player.interactTangleLeft.x , player.interactTangleLeft.y , player.interactTangleLeft.width , player.interactTangleLeft.height);
-        g2.drawRect(player.interactTangleRight.x , player.interactTangleRight.y , player.interactTangleRight.width , player.interactTangleRight.height);
-    }
     public void playMusic(int i)
     {
         music.setFile(i);
@@ -179,5 +170,15 @@ public class GamePanel extends JPanel implements Runnable{
             System.out.println("YOU WON THE GAME");
         }
     }
-    
+
+    public void objectInteraction(int index)
+    {
+        obj[index].interact();
+
+    }
+
+    public void checkComputer()
+    {
+
+    }
 }

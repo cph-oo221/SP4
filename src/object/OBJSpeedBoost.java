@@ -17,4 +17,10 @@ public class OBJSpeedBoost extends SuperObject
             e.printStackTrace();
         }
     }
+
+    @Override
+    public void interact()
+    {
+        System.out.println("No interact here");
+    }
 }

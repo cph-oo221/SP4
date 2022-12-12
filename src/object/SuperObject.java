@@ -5,7 +5,7 @@ import main.GamePanel;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 
-public class SuperObject
+public abstract class SuperObject
 {
     public GamePanel gp;
     public BufferedImage image;
@@ -18,12 +18,14 @@ public class SuperObject
     public int solidAreaY = 1;
     public int solidAreaDefaultX = 0;
     public int solidAreaDefaultY = 0;
+
+    public boolean pickUpAble = false;
     public Rectangle solidArea;
+
     public SuperObject()
     {
         this.solidArea = new Rectangle(solidAreaX,solidAreaY,solidAreaW,solidAreaH);
     }
-
 
 
     public void draw(Graphics2D g2, GamePanel gp)
@@ -42,4 +44,13 @@ public class SuperObject
 
     }
 
+    public void interact()
+    {
+        System.out.println( "This is: " + name);
+    }
+
+    public boolean isPickUpAble()
+    {
+        return pickUpAble;
+    }
 }
