@@ -32,8 +32,8 @@ public class EventHandler
 
     private void teleport()
     {
-        gp.player.worldX = gp.tileSize * 36;
-        gp.player.worldY = gp.tileSize * 10; 
+        gp.player.worldX = gp.tileSize * 42;
+        gp.player.worldY = gp.tileSize * 17;
 
     }
 
