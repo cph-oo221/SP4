@@ -16,6 +16,8 @@ public class UI
     BufferedImage graphicsCardImage;
     BufferedImage RAMimage;
 
+    Rectangle[] visualHp;
+
     Graphics2D g2;
     public UI(GamePanel gp)
     {
@@ -37,6 +39,7 @@ public class UI
         g2.drawImage(RAMimage, gp.tileSize / 2, (int) (1.3 * gp.tileSize), gp.tileSize, gp.tileSize, null);
         g2.drawString(": " + gp.player.hasRAM, 80, 67 + 48);
 
+        drawHpBar(550, 40);
 
         if(gp.gameState == gp.pauseState)
         {
@@ -46,7 +49,26 @@ public class UI
         {
 
         }
+       drawHpBar(550, 40);
     }
+
+    private void drawHpBar(int x, int y)
+    {
+        g2.setColor(Color.black);
+        g2.drawRect(x, y, 170, 30);
+        g2.setColor(Color.darkGray);
+        g2.fillRect(x, y, 170, 30);
+        g2.setColor(Color.green);
+        int hpX = x + 3;
+        int hpY = y + 3;
+        for (int i = 0; i < gp.player.HP; i++)
+        {
+            g2.fillRect(hpX, hpY, 20, 20);
+            hpX += 20;
+        }
+
+    }
+
     public void drawPauseScreen()
     {
         g2.setFont(g2.getFont().deriveFont(Font.PLAIN , 80));
