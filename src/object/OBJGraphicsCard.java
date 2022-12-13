@@ -1,23 +1,23 @@
 package object;
 
+//PLACEHOLDER
+
 import javax.imageio.ImageIO;
 import java.io.IOException;
 
-public class OBJRam extends SuperObject
-{
-
-    public OBJRam()
+public class OBJGraphicsCard extends SuperObject{
+    public OBJGraphicsCard()
     {
-        name = "RAM";
+        name = "Graphics Card";
+
         try
         {
-            image = ImageIO.read(getClass().getResourceAsStream("/objects/Ram1.png"));
+            image = ImageIO.read(getClass().getResourceAsStream("/objects/Graphics Card.png"));
         }
         catch (IOException e)
         {
             e.printStackTrace();
         }
-        collision = false;
         pickUpAble = true;
     }
 }
