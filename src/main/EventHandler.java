@@ -57,11 +57,42 @@ public class EventHandler
             // event happens
             teleport(0, 29, 39);
         }
-        else if(hit(1, 38, 8, "any") == true)
-        {
-            damage();
-        }
+        // Fire in dungeon
+        setFire();
     }
+
+    public void setFire()
+    {
+        // Fire placed at entrance/exit dungeon
+        if(hit(1, 40, 7, "any") == true) {damage();}
+        if(hit(1, 33, 7, "any") == true) {damage();}
+        if(hit(1, 32, 8, "any") == true) {damage();}
+        if(hit(1, 39, 9, "any") == true) {damage();}
+
+        // Fire room entrance
+        if(hit(1, 21, 17, "any") == true) {damage();}
+        if(hit(1, 21, 20, "any") == true) {damage();}
+
+        // Fire room bottom 3
+        if(hit(1, 19, 19, "any") == true) {damage();}
+        if(hit(1, 15, 19, "any") == true) {damage();}
+        if(hit(1, 9, 19, "any") == true) {damage();}
+
+        // Fire room top 3
+        if(hit(1, 19, 15, "any") == true) {damage();}
+        if(hit(1, 13, 15, "any") == true) {damage();}
+        if(hit(1, 8, 15, "any") == true) {damage();}
+
+        //Fire room mid
+        if(hit(1, 11, 16, "any") == true) {damage();}
+        if(hit(1, 15, 17, "any") == true) {damage();}
+
+        if(hit(1, 14, 18, "any") == true) {damage();}
+        if(hit(1, 11, 18, "any") == true) {damage();}
+
+
+    }
+
 
     public void damage()
     {
