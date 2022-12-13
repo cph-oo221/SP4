@@ -62,6 +62,8 @@ public class GamePanel extends JPanel implements Runnable{
     public final int playState = 1;
     public final int pauseState = 2;
     public final int dungeonState = 3;
+    public final int winState = 4;
+    public final int lossState = 5;
 
 
 
@@ -139,6 +141,14 @@ public class GamePanel extends JPanel implements Runnable{
         {
             //PAUSE
         }
+        if(gameState == winState)
+        {
+            //NOTHING
+        }
+        if(gameState == lossState)
+        {
+            //NOTHING
+        }
 
     }
 
@@ -189,7 +199,7 @@ public class GamePanel extends JPanel implements Runnable{
         winCount++;
         if(winCount == 2)
         {
-            System.out.println("YOU WON THE GAME");
+            gameState = winState;
         }
     }
 

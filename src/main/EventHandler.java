@@ -83,7 +83,7 @@ public class EventHandler
             gp.player.invincible = true;
             if (gp.player.HP <= 0)
             {
-                gp.gameState = gp.pauseState;
+                gp.gameState = gp.lossState;
                 System.out.println("GameOver!");
             }
         }
