@@ -24,7 +24,7 @@ public class AssetSetter
         gp.obj[mapNum][3].worldX = 38 * gp.tileSize;
         gp.obj[mapNum][3].worldY = 40 * gp.tileSize;
 
-        // if you want to add on map 1
+        // add on dungeon map
         mapNum = 1;
         gp.obj[mapNum][2] = new OBJGraphicsCard();
         gp.obj[mapNum][2].worldX = 9 * gp.tileSize;
