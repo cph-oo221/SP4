@@ -26,9 +26,6 @@ public class Player extends Entity{
 
     public int currentCollison = 999;
 
-    public boolean invincible;
-    public int invincibleCounter;
-
 
     public Player(GamePanel gp, KeyHandler keyH)
     {

@@ -90,11 +90,10 @@ public class UI
             g2.fillRect(hpX, hpY, 5, 24);
             hpX += 6;
         }
-        g2.dispose();
     }
 
 
-    public void drawPauseScreen()
+    public void drawPauseScreen(),
     {
         g2.setFont(g2.getFont().deriveFont(Font.PLAIN , 80));
         String text = "PAUSED";
