@@ -25,7 +25,6 @@ public class OBJComputer extends SuperObject {
         if(gp.player.hasRAM > 0)
         {
             System.out.println("you put in " + gp.player.hasRAM + " RAM.");
-            gp.playSE(2);
             gp.player.hasRAM--;
             // computer wincount ++
             gp.countWinPoints();
