@@ -17,8 +17,9 @@ public class Player extends Entity{
 
     public final int screenX;
     public final int screenY;
-    public int hasRAM;
     public int hasGraphicsCard;
+    public int hasRAM;
+
 
     public int currentCollison = 999;
 
