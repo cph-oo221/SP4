@@ -38,15 +38,43 @@ public class UI
         g2.drawString(": " + gp.player.hasRAM, 80, 67 + 48);
 
 
-        if(gp.gameState == gp.pauseState)
+        if (gp.gameState == gp.pauseState)
         {
             drawPauseScreen();
         }
-        if(gp.gameState == gp.playState)
+        if (gp.gameState == gp.playState)
         {
-
+            //ORNDES AF GAMEPANEL
+        }
+        if (gp.gameState == gp.winState)
+        {
+            drawWinScreen();
+        }
+        if(gp.gameState == gp.lossState)
+        {
+            drawLossScreen();
         }
     }
+
+    private void drawWinScreen()
+    {
+        g2.setFont(arial_BOLD_40);
+        g2.setColor(Color.yellow);
+        String text = "YOU WIN!";
+        int x = getXForCenteredText(text);
+        int y = gp.screenHeight/2;
+        g2.drawString(text, x, y);
+    }
+    private void drawLossScreen()
+    {
+        g2.setFont(arial_BOLD_40);
+        g2.setColor(Color.red);
+        String text = "YOU Died!";
+        int x = getXForCenteredText(text);
+        int y = gp.screenHeight/2;
+        g2.drawString(text, x, y);
+    }
+
     public void drawPauseScreen()
     {
         g2.setFont(g2.getFont().deriveFont(Font.PLAIN , 80));

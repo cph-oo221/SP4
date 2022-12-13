@@ -51,11 +51,13 @@ public class EventHandler
         {
             // event happens
             teleport(1, 36, 8);
+            toDungeon();
         }
         else if(hit(1,36,6,"any") == true)
         {
             // event happens
             teleport(0, 29, 39);
+            toHubWorld();
         }
         // Fire in dungeon
         setFire();
@@ -92,8 +94,16 @@ public class EventHandler
 
 
     }
-
-
+    private void toDungeon()
+    {
+        gp.stopMusic();
+        gp.playMusic(4);
+    }
+    private void toHubWorld()
+    {
+        gp.stopMusic();
+        gp.playMusic(0);
+    }
     public void damage()
     {
         if(gp.player.invincible == false)
@@ -103,7 +113,7 @@ public class EventHandler
             gp.player.invincible = true;
             if (gp.player.HP <= 0)
             {
-                gp.gameState = gp.pauseState;
+                gp.gameState = gp.lossState;
                 System.out.println("GameOver!");
             }
         }
