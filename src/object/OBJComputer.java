@@ -33,7 +33,6 @@ public class OBJComputer extends SuperObject {
         if(gp.player.hasGraphicsCard > 0)
         {
             System.out.println("you put in " + gp.player.hasGraphicsCard + " Graphics Card.");
-            gp.playSE(2);
             gp.player.hasGraphicsCard--;
             // computer wincount ++
             gp.countWinPoints();

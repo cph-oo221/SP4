@@ -70,7 +70,7 @@ public class UI
     {
         g2.setFont(arial_BOLD_40);
         g2.setColor(Color.red);
-        String text = "YOU Died!";
+        String text = "YOU DIED!";
         int x = getXForCenteredText(text);
         int y = gp.screenHeight/2;
         g2.drawString(text, x, y);
@@ -90,7 +90,6 @@ public class UI
             g2.fillRect(hpX, hpY, 5, 24);
             hpX += 6;
         }
-        g2.dispose();
     }
 
 
@@ -100,7 +99,6 @@ public class UI
         String text = "PAUSED";
         int x = getXForCenteredText(text);
         int y = gp.screenHeight/2;
-
         g2.drawString(text, x, y);
     }
     public int getXForCenteredText(String text)

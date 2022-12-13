@@ -116,10 +116,10 @@ public class GamePanel extends JPanel implements Runnable{
 
             //When delta = drawInterval we update and repaint , then reset delta
             if (delta >= 1) {
-                update();
-                repaint();
-                delta--;
-                drawCount++;
+                    update();
+                    repaint();
+                    delta--;
+                    drawCount++;
             }
             if (timer >= 1000000000) {
                 System.out.println("FPS : " + drawCount);
@@ -137,18 +137,12 @@ public class GamePanel extends JPanel implements Runnable{
             player.update();
             aSetter.setNewObject();
             eventH.checkEvent();
+            eventH.win();
+            eventH.playerDeath();
         }
         if(gameState == pauseState)
         {
             //PAUSE
-        }
-        if(gameState == winState)
-        {
-            //NOTHING
-        }
-        if(gameState == lossState)
-        {
-            //NOTHING
         }
 
     }
@@ -200,7 +194,7 @@ public class GamePanel extends JPanel implements Runnable{
         winCount++;
         if(winCount == 2)
         {
-            gameState = winState;
+            System.out.println("YOU WON THE GAME");
         }
     }
 

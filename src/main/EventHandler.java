@@ -8,7 +8,6 @@ public class EventHandler
     Rectangle eventRect[][][];
     int eventRectDefaultX, eventRectDefaultY;
 
-
     public EventHandler(GamePanel gp)
     {
         this.gp = gp;
@@ -47,13 +46,12 @@ public class EventHandler
 
     public void checkEvent()
     {
-        if(hit(0,30,39,"any") == true)
+        if (hit(0, 30, 39, "any") == true)
         {
             // event happens
             teleport(1, 36, 8);
             toDungeon();
-        }
-        else if(hit(1,36,6,"any") == true)
+        } else if (hit(1, 36, 6, "any") == true)
         {
             // event happens
             teleport(0, 29, 39);
@@ -94,15 +92,27 @@ public class EventHandler
 
 
     }
+
     private void toDungeon()
     {
         gp.stopMusic();
         gp.playMusic(4);
     }
+
     private void toHubWorld()
     {
         gp.stopMusic();
         gp.playMusic(0);
+    }
+
+
+    public void playerDeath()
+    {
+        if ( gp.gameState == gp.lossState)
+        {
+            gp.stopMusic();
+            gp.playMusic(5);
+        }
     }
     public void damage()
     {
@@ -169,4 +179,12 @@ public class EventHandler
     }
 
 
+    public void win()
+    {
+        if(gp.gameState == gp.winState)
+        {
+            gp.stopMusic();
+            gp.playMusic(6);
+        }
+    }
 }
