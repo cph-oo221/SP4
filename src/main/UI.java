@@ -28,5 +28,7 @@ public class UI
         g2.drawImage(tempImage , gp.tileSize/2 , gp.tileSize/2 , gp.tileSize, gp.tileSize, null);
         g2.drawImage(tempImage , gp.tileSize/2 , gp.tileSize/2 , gp.tileSize, gp.tileSize, null);
         g2.drawString(": "+gp.player.hasGraphicsCard, 80, 67);
+        g2.setColor(Color.darkGray);
+        g2.fillRect(550, 39, 170, 30);
     }
 }
