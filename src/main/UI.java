@@ -57,7 +57,7 @@ public class UI
         }
     }
 
-    private void drawWinScreen()
+    public void drawWinScreen()
     {
         g2.setFont(arial_BOLD_40);
         g2.setColor(Color.yellow);
@@ -66,7 +66,7 @@ public class UI
         int y = gp.screenHeight/2;
         g2.drawString(text, x, y);
     }
-    private void drawLossScreen()
+    public void drawLossScreen()
     {
         g2.setFont(arial_BOLD_40);
         g2.setColor(Color.red);

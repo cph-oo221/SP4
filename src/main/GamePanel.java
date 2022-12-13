@@ -143,6 +143,14 @@ public class GamePanel extends JPanel implements Runnable{
         {
             //PAUSE
         }
+        if(gameState == lossState)
+        {
+
+        }
+        if(gameState == winState)
+        {
+
+        }
 
     }
 
@@ -188,23 +196,28 @@ public class GamePanel extends JPanel implements Runnable{
         se.play();
     }
 
+    public void win()
+    {
+        if(gameState == winState)
+        {
+            stopMusic();
+            playMusic(6);
+            ui.drawWinScreen();
+        }
+    }
+
     public void countWinPoints()
     {
         winCount++;
         if(winCount == 2)
         {
-            System.out.println("YOU WON THE GAME");
+            gameState = winState;
         }
     }
 
     public void objectInteraction(int index)
     {
         obj[currentMap][index].interact();
-
-    }
-
-    public void checkComputer()
-    {
 
     }
 }
