@@ -39,7 +39,7 @@ public class UI
         g2.drawImage(RAMimage, gp.tileSize / 2, (int) (1.3 * gp.tileSize), gp.tileSize, gp.tileSize, null);
         g2.drawString(": " + gp.player.hasRAM, 80, 67 + 48);
 
-        drawHpBar(550, 40);
+        drawHpBar(150, 40);
 
         if(gp.gameState == gp.pauseState)
         {
@@ -49,24 +49,23 @@ public class UI
         {
 
         }
-       drawHpBar(550, 40);
     }
 
     private void drawHpBar(int x, int y)
     {
-        g2.setColor(Color.black);
-        g2.drawRect(x, y, 170, 30);
-        g2.setColor(Color.darkGray);
-        g2.fillRect(x, y, 170, 30);
-        g2.setColor(Color.green);
         int hpX = x + 3;
         int hpY = y + 3;
+        g2.setColor(Color.black);
+        g2.fillRect(x - 5, y - 5, (int) 6 * gp.player.maxHP + 15, 40);
+        g2.setColor(Color.darkGray);
+        g2.fillRect(x, y, (int) 6 * gp.player.maxHP + 5, 30);
+        g2.setColor(Color.green);
         for (int i = 0; i < gp.player.HP; i++)
         {
-            g2.fillRect(hpX, hpY, 20, 20);
-            hpX += 20;
+            g2.fillRect(hpX, hpY, 5, 24);
+            hpX += 6;
         }
-
+        g2.dispose();
     }
 
     public void drawPauseScreen()
