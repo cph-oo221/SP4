@@ -21,6 +21,7 @@ public class Player extends Entity{
     public int hasGraphicsCard;
     public int hasRAM;
 
+    public int maxHP;
     public int HP = 32;
 
     public int currentCollison = 999;
@@ -41,6 +42,8 @@ public class Player extends Entity{
         solidAreaDefaultY = solidArea.y;
         solidArea.width = (int) (gp.tileSize*0.4);
         solidArea.height = (int) (gp.tileSize*0.6);
+
+        maxHP = HP;
 
         setDefaulValues();
         getPlayerImage();
