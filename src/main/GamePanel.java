@@ -193,7 +193,7 @@ public class GamePanel extends JPanel implements Runnable{
         winCount++;
         if(winCount == 2)
         {
-            System.out.println("YOU WON THE GAME");
+            gameState = winState;
         }
     }
 
