@@ -8,6 +8,7 @@ public class EventHandler
     Rectangle eventRect[][][];
     int eventRectDefaultX, eventRectDefaultY;
 
+
     public EventHandler(GamePanel gp)
     {
         this.gp = gp;
@@ -56,8 +57,39 @@ public class EventHandler
             // event happens
             teleport(0, 29, 39);
         }
+        else if(hit(1, 38, 8, "any") == true)
+        {
+            damage();
+        }
     }
 
+    public void damage()
+    {
+        if(gp.player.invincible == false)
+        {
+            gp.player.HP -= 4;
+            System.out.println("your hp " + gp.player.HP);
+            gp.player.invincible = true;
+            if (gp.player.HP <= 0)
+            {
+                gp.gameState = gp.pauseState;
+                System.out.println("GameOver!");
+            }
+        }
+    }
+
+    public void invincibilityFrames()
+    {
+        if( gp.player.invincible == true)
+        {
+            gp.player.invincibleCounter++;
+        }
+        if(gp.player.invincibleCounter >= 60)
+        {
+            gp.player.invincibleCounter = 0;
+            gp.player.invincible = false;
+        }
+    }
     private void teleport(int map, int col, int row)
     {
         gp.currentMap = map;
