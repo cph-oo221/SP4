@@ -22,7 +22,7 @@ public class Player extends Entity{
     public int hasRAM;
 
     public int maxHP;
-    public int HP = 50;
+    public int HP = 32;
 
     public int currentCollison = 999;
 
