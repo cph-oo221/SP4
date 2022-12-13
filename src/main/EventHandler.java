@@ -46,13 +46,12 @@ public class EventHandler
 
     public void checkEvent()
     {
-        if(hit(0,30,39,"any") == true)
+        if (hit(0, 30, 39, "any") == true)
         {
             // event happens
             teleport(1, 36, 8);
             toDungeon();
-        }
-        else if(hit(1,36,6,"any") == true)
+        } else if (hit(1, 36, 6, "any") == true)
         {
             // event happens
             teleport(0, 29, 39);
@@ -65,13 +64,13 @@ public class EventHandler
         gp.stopMusic();
         gp.playMusic(4);
     }
+
     private void toHubWorld()
     {
         gp.stopMusic();
         gp.playMusic(0);
     }
-<<<<<<< Updated upstream
-=======
+
 
     public void playerDeath()
     {
@@ -95,7 +94,6 @@ public class EventHandler
             }
         }
     }
->>>>>>> Stashed changes
 
     private void teleport(int map, int col, int row)
     {
