@@ -103,6 +103,9 @@ public class Player extends Entity{
             //CHECK OBJECT COLLISION
             currentCollison = gp.cChecker.checkObject(this, true);
 
+            //check event
+            gp.eHandler.checkEvent();
+
 
             // INTERACTION ON COLLIDED OBJECT WiTH E PRESS
 
