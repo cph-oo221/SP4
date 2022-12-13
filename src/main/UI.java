@@ -45,7 +45,27 @@ public class UI
         if(gp.gameState == gp.playState)
         {
 
+<<<<<<< Updated upstream
         }
+=======
+    private void drawWinScreen()
+    {
+        g2.setFont(arial_BOLD_40);
+        g2.setColor(Color.yellow);
+        String text = "YOU WIN!";
+        int x = getXForCenteredText(text);
+        int y = gp.screenHeight/2;
+        g2.drawString(text, x, y);
+    }
+    private void drawLossScreen()
+    {
+        g2.setFont(arial_BOLD_40);
+        g2.setColor(Color.red);
+        String text = "YOU DIED!";
+        int x = getXForCenteredText(text);
+        int y = gp.screenHeight/2;
+        g2.drawString(text, x, y);
+>>>>>>> Stashed changes
     }
     public void drawPauseScreen()
     {
@@ -53,7 +73,6 @@ public class UI
         String text = "PAUSED";
         int x = getXForCenteredText(text);
         int y = gp.screenHeight/2;
-
         g2.drawString(text, x, y);
     }
     public int getXForCenteredText(String text)

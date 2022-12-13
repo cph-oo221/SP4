@@ -70,6 +70,32 @@ public class EventHandler
         gp.stopMusic();
         gp.playMusic(0);
     }
+<<<<<<< Updated upstream
+=======
+
+    public void playerDeath()
+    {
+        if ( gp.gameState == gp.lossState)
+        {
+            gp.stopMusic();
+            gp.playMusic(5);
+        }
+    }
+    public void damage()
+    {
+        if(gp.player.invincible == false)
+        {
+            gp.player.HP -= 4;
+            System.out.println("your hp " + gp.player.HP);
+            gp.player.invincible = true;
+            if (gp.player.HP <= 0)
+            {
+                gp.gameState = gp.lossState;
+                System.out.println("GameOver!");
+            }
+        }
+    }
+>>>>>>> Stashed changes
 
     private void teleport(int map, int col, int row)
     {
@@ -109,4 +135,12 @@ public class EventHandler
     }
 
 
+    public void win()
+    {
+        if(gp.gameState == gp.winState)
+        {
+            gp.stopMusic();
+            gp.playMusic(6);
+        }
+    }
 }
