@@ -38,6 +38,5 @@ public class OBJComputer extends SuperObject {
 
         }
         System.out.println("This is your computer");
-        gp.checkComputer();
     }
 }
