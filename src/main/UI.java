@@ -1,5 +1,5 @@
 package main;
-
+import object.SuperObject;
 import object.OBJGraphicsCard;
 import object.OBJRam;
 
@@ -38,16 +38,15 @@ public class UI
         g2.drawString(": " + gp.player.hasRAM, 80, 67 + 48);
 
 
-        if(gp.gameState == gp.pauseState)
+        if (gp.gameState == gp.pauseState)
         {
             drawPauseScreen();
         }
-        if(gp.gameState == gp.playState)
+        if (gp.gameState == gp.playState)
         {
 
-<<<<<<< Updated upstream
         }
-=======
+    }
     private void drawWinScreen()
     {
         g2.setFont(arial_BOLD_40);
@@ -65,7 +64,6 @@ public class UI
         int x = getXForCenteredText(text);
         int y = gp.screenHeight/2;
         g2.drawString(text, x, y);
->>>>>>> Stashed changes
     }
     public void drawPauseScreen()
     {
