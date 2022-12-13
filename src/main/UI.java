@@ -1,5 +1,5 @@
 package main;
-import object.SuperObject;
+
 import object.OBJGraphicsCard;
 import object.OBJRam;
 
@@ -37,6 +37,7 @@ public class UI
         g2.drawImage(RAMimage, gp.tileSize / 2, (int) (1.3 * gp.tileSize), gp.tileSize, gp.tileSize, null);
         g2.drawString(": " + gp.player.hasRAM, 80, 67 + 48);
 
+        drawHpBar(150, 40);
 
         if (gp.gameState == gp.pauseState)
         {
@@ -44,9 +45,18 @@ public class UI
         }
         if (gp.gameState == gp.playState)
         {
-
+            //ORNDES AF GAMEPANEL
+        }
+        if (gp.gameState == gp.winState)
+        {
+            drawWinScreen();
+        }
+        if(gp.gameState == gp.lossState)
+        {
+            drawLossScreen();
         }
     }
+
     private void drawWinScreen()
     {
         g2.setFont(arial_BOLD_40);
@@ -65,6 +75,25 @@ public class UI
         int y = gp.screenHeight/2;
         g2.drawString(text, x, y);
     }
+
+    private void drawHpBar(int x, int y)
+    {
+        int hpX = x + 3;
+        int hpY = y + 3;
+        g2.setColor(Color.black);
+        g2.fillRect(x - 5, y - 5, (int) 6 * gp.player.maxHP + 15, 40);
+        g2.setColor(Color.darkGray);
+        g2.fillRect(x, y, (int) 6 * gp.player.maxHP + 5, 30);
+        g2.setColor(Color.green);
+        for (int i = 0; i < gp.player.HP; i++)
+        {
+            g2.fillRect(hpX, hpY, 5, 24);
+            hpX += 6;
+        }
+        g2.dispose();
+    }
+
+
     public void drawPauseScreen()
     {
         g2.setFont(g2.getFont().deriveFont(Font.PLAIN , 80));

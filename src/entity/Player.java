@@ -11,7 +11,8 @@ import java.io.IOException;
 public class Player extends Entity{
 
 
-    public int HP;
+    public boolean invincible = false;
+    public int invincibleCounter= 0;
     GamePanel gp;
      public KeyHandler keyH;
 
@@ -20,6 +21,8 @@ public class Player extends Entity{
     public int hasGraphicsCard;
     public int hasRAM;
 
+    public int maxHP;
+    public int HP = 32;
 
     public int currentCollison = 999;
 
@@ -42,6 +45,8 @@ public class Player extends Entity{
         solidAreaDefaultY = solidArea.y;
         solidArea.width = (int) (gp.tileSize*0.4);
         solidArea.height = (int) (gp.tileSize*0.6);
+
+        maxHP = HP;
 
         setDefaulValues();
         getPlayerImage();
@@ -106,6 +111,7 @@ public class Player extends Entity{
 
 
             //pickUpObject(objectIndex);
+            gp.eventH.invincibilityFrames();
 
             //IF COLLISION IS FALSE, PLAYER CAN MOVE
             if(collisionOn == false)
