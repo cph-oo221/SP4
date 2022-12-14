@@ -59,7 +59,7 @@ public class GamePanel extends JPanel implements Runnable{
     //ENTITY AND OBJECT
     public Player player = new Player(this, keyH);
     public SuperObject obj[][] = new SuperObject[maxMap][10];
-    public Monster monsters[][] = new Monster[maxMap][10];
+    public Monster kasseFyr = new Monster(11,40);
 
     public int gameState;
     public final int playState = 1;
@@ -137,6 +137,7 @@ public class GamePanel extends JPanel implements Runnable{
         if(gameState == playState)
         {
             player.update();
+            kasseFyr.movement();
             aSetter.setNewObject();
             eventH.checkEvent();
             eventH.win();
@@ -176,6 +177,7 @@ public class GamePanel extends JPanel implements Runnable{
 
         //PLAYER DRAWER
         player.draw(g2);
+        kasseFyr.draw(g2);
         ui.draw(g2);
 
 
