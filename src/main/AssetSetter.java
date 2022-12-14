@@ -16,7 +16,7 @@ public class AssetSetter
         gp.obj[mapNum][0].worldX = 9 * gp.tileSize;
         gp.obj[mapNum][0].worldY = 24 * gp.tileSize;
 
-        gp.obj[mapNum][1] = new OBJSign();
+        gp.obj[mapNum][1] = new OBJSign(this.gp);
         gp.obj[mapNum][1].worldX = 41 * gp.tileSize;
         gp.obj[mapNum][1].worldY = 20 * gp.tileSize;
 

@@ -53,6 +53,7 @@ public class GamePanel extends JPanel implements Runnable{
 
     public UI ui = new UI(this);
     public EventHandler eHandler = new EventHandler(this);
+
     Thread gameThread;
 
     //ENTITY AND OBJECT
@@ -65,6 +66,8 @@ public class GamePanel extends JPanel implements Runnable{
     public final int dungeonState = 3;
     public final int winState = 4;
     public final int lossState = 5;
+
+    public final int dialogueState = 6;
 
 
 
@@ -214,11 +217,5 @@ public class GamePanel extends JPanel implements Runnable{
         {
             gameState = winState;
         }
-    }
-
-    public void objectInteraction(int index)
-    {
-        obj[currentMap][index].interact();
-
     }
 }
