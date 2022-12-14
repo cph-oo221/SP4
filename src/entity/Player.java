@@ -14,12 +14,12 @@ public class Player extends Entity{
     public boolean invincible = false;
     public int invincibleCounter= 0;
     GamePanel gp;
-     public KeyHandler keyH;
+    public KeyHandler keyH;
 
     public final int screenX;
     public final int screenY;
-    public int hasGraphicsCard = 0;
-    public int hasRAM = 0;
+    public int hasGraphicsCard = 1;
+    public int hasRAM = 1;
 
     public int maxHP;
     public int HP = 32;
@@ -75,6 +75,9 @@ public class Player extends Entity{
         worldY = gp.tileSize * 8;
         speed = 6;
         direction="up";
+        HP = maxHP;
+        hasGraphicsCard = 1;
+        hasRAM = 1;
     }
     public void update(){
         if( keyH.upPressed || keyH.downPressed || keyH.leftPressed || keyH.rightPressed)

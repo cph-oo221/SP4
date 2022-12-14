@@ -32,7 +32,7 @@ public class GamePanel extends JPanel implements Runnable{
     public int currentMap = 0;
 
     //FPS
-    private int FPS = 60;
+    public int FPS = 60;
 
     //Win the game
     int winCount = 0;
@@ -146,11 +146,36 @@ public class GamePanel extends JPanel implements Runnable{
         }
         if(gameState == lossState)
         {
-
+            // When gameState is lossState
+            // (Q) quit or (R) restart, can now be pressed
+            if (keyH.qPressed)
+            {
+                System.out.println("Game is shutting down...");
+                System.exit(0);
+            }
+            if(keyH.rPressed)
+            {
+                // reset game
+                player.setDefaulValues();
+                setupGame();
+                startGameThread();
+            }
         }
         if(gameState == winState)
         {
-
+            // When gameState is lossState
+            // (Q) quit or (R) restart, can now be pressed
+            if (keyH.qPressed)
+            {
+                System.out.println("Game is shutting down...");
+                System.exit(0);
+            }
+            if(keyH.rPressed)
+            {
+                player.setDefaulValues();
+                setupGame();
+                startGameThread();
+            }
         }
 
     }
