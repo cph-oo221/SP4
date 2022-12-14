@@ -139,6 +139,7 @@ public class GamePanel extends JPanel implements Runnable{
             eventH.checkEvent();
             eventH.win();
             eventH.playerDeath();
+
         }
         if(gameState == pauseState)
         {

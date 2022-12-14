@@ -53,4 +53,6 @@ public abstract class SuperObject
     {
         return pickUpAble;
     }
+
+    public void movement(){};
 }
