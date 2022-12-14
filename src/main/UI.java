@@ -39,7 +39,11 @@ public class UI
 
         drawHpBar(150, 40);
 
+        // UI fps
         fpsCounter(680, 50);
+
+        // UI Player Location
+        drawPlayerLocation(680, 70);
 
         if (gp.gameState == gp.pauseState)
         {
@@ -120,8 +124,17 @@ public class UI
     {
         Font font = new Font("Arial" , Font.BOLD , 20);
         g2.setFont(font);
-        g2.setColor(Color.black);
+        g2.setColor(Color.white);
         g2.drawString("FPS: " + gp.FPS, posX, posY);
+    }
+
+    public void drawPlayerLocation(int posX, int posY)
+    {
+        Font font = new Font("Arial" , Font.BOLD , 17);
+        g2.setFont(font);
+        g2.setColor(Color.white);
+        g2.drawString("X: " + gp.player.worldX, posX, posY);
+        g2.drawString("Y: " + gp.player.worldY, posX, posY + 25);
     }
 
 

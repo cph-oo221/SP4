@@ -1,5 +1,6 @@
 package main;
 
+import entity.Entity;
 import entity.Player;
 import tile.TileManager;
 
@@ -41,6 +42,7 @@ public class GamePanel extends JPanel implements Runnable{
 
     //SYSTEM
 
+    public Entity entity = new Entity();
     public TileManager tileM = new TileManager(this);
     KeyHandler keyH = new KeyHandler(this);
 
@@ -165,9 +167,7 @@ public class GamePanel extends JPanel implements Runnable{
             if(keyH.rPressed)
             {
                 // reset game
-                player.setDefaulValues();
-                setupGame();
-                startGameThread();
+                gameRestart();
             }
         }
         if(gameState == winState)
@@ -181,13 +181,32 @@ public class GamePanel extends JPanel implements Runnable{
             }
             if(keyH.rPressed)
             {
-                // set all values to default
-                player.setDefaulValues();
-                setupGame();
-                startGameThread();
+                // reset game
+                gameRestart();
             }
         }
 
+    }
+
+    private void gameRestart()
+    {
+        // stop music that are runing
+        stopMusic();
+
+        // defaultValues set players def. values
+        player.setDefaulValues();
+
+        // setupgame
+        setupGame();
+
+        // startGameThread
+        startGameThread();
+
+        // Set win counter back to default value
+        winCount = 0;
+
+        // Set the map to 0 if player died in map 1 (Dungeon map)
+        currentMap = 0;
     }
 
     public void paintComponent(Graphics g){

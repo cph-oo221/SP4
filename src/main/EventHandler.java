@@ -100,7 +100,7 @@ public class EventHandler
         gp.playMusic(4);
     }
 
-    private void toHubWorld()
+    public void toHubWorld()
     {
         gp.stopMusic();
         gp.playMusic(0);

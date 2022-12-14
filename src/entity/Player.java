@@ -79,6 +79,7 @@ public class Player extends Entity{
         hasGraphicsCard = 1;
         hasRAM = 1;
     }
+
     public void update(){
         if( keyH.upPressed || keyH.downPressed || keyH.leftPressed || keyH.rightPressed)
         {
