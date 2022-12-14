@@ -7,18 +7,15 @@ public class DialogueHandler
 {
 
     Font comic_sans;
-
-    Graphics2D g2;
     public DialogueHandler()
     {
 
-        comic_sans = new Font("Comic", Font.PLAIN, 12);
+        comic_sans = new Font("Comic", Font.BOLD, 13);
     }
 
 
     public void drawDialogue(int x, int y, String msg, Graphics2D g2) // max 182 characters!
     {
-        StringBuilder str = new StringBuilder();
         g2.setColor(Color.black);
         g2.fillRoundRect(x, y, 208, 108, 50, 50);
 
