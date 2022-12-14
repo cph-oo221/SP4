@@ -1,12 +1,16 @@
 package object;
 
+import main.GamePanel;
+
 import javax.imageio.ImageIO;
 import java.io.IOException;
 
 public class OBJSign extends SuperObject{
 
-    public OBJSign()
+    GamePanel gp;
+    public OBJSign(GamePanel gp)
     {
+        this.gp = gp;
         name = "Sign";
         try
         {
@@ -22,6 +26,7 @@ public class OBJSign extends SuperObject{
     @Override
     public void interact()
     {
-        System.out.println("Dette er Jesper");
+        dialogue_text = "2 sek. Ryger lige.";
+        show_dialogue = true;
     }
 }
