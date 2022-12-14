@@ -199,9 +199,6 @@ public class GamePanel extends JPanel implements Runnable{
         // setupgame
         setupGame();
 
-        // startGameThread
-        startGameThread();
-
         // Set win counter back to default value
         winCount = 0;
 
