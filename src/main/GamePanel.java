@@ -1,5 +1,6 @@
 package main;
 
+import entity.Monster;
 import entity.Player;
 import tile.TileManager;
 
@@ -58,6 +59,7 @@ public class GamePanel extends JPanel implements Runnable{
     //ENTITY AND OBJECT
     public Player player = new Player(this, keyH);
     public SuperObject obj[][] = new SuperObject[maxMap][10];
+    public Monster monsters[][] = new Monster[maxMap][10];
 
     public int gameState;
     public final int playState = 1;
