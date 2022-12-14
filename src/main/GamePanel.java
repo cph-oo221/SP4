@@ -5,9 +5,11 @@ import tile.TileManager;
 
 import javax.swing.*;
 import java.awt.*;
-
+import java.io.IOException;
 
 import object.SuperObject;
+
+
 public class GamePanel extends JPanel implements Runnable{
 
     //SCREEN SETTINGS
@@ -39,7 +41,7 @@ public class GamePanel extends JPanel implements Runnable{
 
     //SYSTEM
 
-    TileManager tileM = new TileManager(this);
+    public TileManager tileM = new TileManager(this);
     KeyHandler keyH = new KeyHandler(this);
 
     Sound music = new Sound();
@@ -116,8 +118,14 @@ public class GamePanel extends JPanel implements Runnable{
 
             //When delta = drawInterval we update and repaint , then reset delta
             if (delta >= 1) {
+                try
+                {
                     update();
-                    repaint();
+                } catch (IOException e)
+                {
+                    throw new RuntimeException(e);
+                }
+                repaint();
                     delta--;
                     drawCount++;
             }
@@ -131,7 +139,8 @@ public class GamePanel extends JPanel implements Runnable{
         }
     }
 
-    public void update(){
+    public void update() throws IOException
+    {
         if(gameState == playState)
         {
             player.update();
@@ -172,6 +181,7 @@ public class GamePanel extends JPanel implements Runnable{
             }
             if(keyH.rPressed)
             {
+                // set all values to default
                 player.setDefaulValues();
                 setupGame();
                 startGameThread();

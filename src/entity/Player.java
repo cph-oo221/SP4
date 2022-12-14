@@ -59,9 +59,9 @@ public class Player extends Entity{
             down2 = ImageIO.read(getClass().getResourceAsStream("/player/Player down2.png"));
             down3 = ImageIO.read(getClass().getResourceAsStream("/player/Player down3.png"));
             left1 = ImageIO.read(getClass().getResourceAsStream("/player/Player Left1.png"));
-            left2= ImageIO.read(getClass().getResourceAsStream("/player/Player Left2.png"));
-            right1= ImageIO.read(getClass().getResourceAsStream("/player/Player Right1.png"));
-            right2= ImageIO.read(getClass().getResourceAsStream("/player/Player Right2.png"));
+            left2 = ImageIO.read(getClass().getResourceAsStream("/player/Player Left2.png"));
+            right1 = ImageIO.read(getClass().getResourceAsStream("/player/Player Right1.png"));
+            right2 = ImageIO.read(getClass().getResourceAsStream("/player/Player Right2.png"));
 
 
         }
@@ -74,7 +74,7 @@ public class Player extends Entity{
         worldX = gp.tileSize * 36;
         worldY = gp.tileSize * 8;
         speed = 6;
-        direction="up";
+        direction = "up";
         HP = maxHP;
         hasGraphicsCard = 1;
         hasRAM = 1;
