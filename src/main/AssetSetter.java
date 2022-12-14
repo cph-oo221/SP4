@@ -30,9 +30,11 @@ public class AssetSetter
         gp.obj[mapNum][2].worldX = 9 * gp.tileSize;
         gp.obj[mapNum][2].worldY = 40 * gp.tileSize;
 
-        gp.obj[mapNum][5] = new OBJMonster();
+       /* gp.obj[mapNum][5] = new OBJMonster();
         gp.obj[mapNum][5].worldX = 11 * gp.tileSize;
         gp.obj[mapNum][5].worldY = 40 * gp.tileSize;
+
+        */
 
     }
 

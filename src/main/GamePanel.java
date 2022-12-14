@@ -11,6 +11,8 @@ import java.awt.*;
 import object.SuperObject;
 public class GamePanel extends JPanel implements Runnable{
 
+    //Meget af koden er udsprunget af stor inspiration fra _link_
+
     //SCREEN SETTINGS
     private final int originalTileSize = 16; // 16*16 pixel tile
     private final int scale = 3;
@@ -59,7 +61,7 @@ public class GamePanel extends JPanel implements Runnable{
     //ENTITY AND OBJECT
     public Player player = new Player(this, keyH);
     public SuperObject obj[][] = new SuperObject[maxMap][10];
-    public Monster kasseFyr = new Monster(11,40);
+    public Monster kasseFyr = new Monster(this);
 
     public int gameState;
     public final int playState = 1;
@@ -137,11 +139,14 @@ public class GamePanel extends JPanel implements Runnable{
         if(gameState == playState)
         {
             player.update();
-            kasseFyr.movement();
             aSetter.setNewObject();
             eventH.checkEvent();
             eventH.win();
             eventH.playerDeath();
+            if(currentMap == 1)
+            {
+                kasseFyr.update();
+            }
 
         }
         if(gameState == pauseState)
@@ -175,11 +180,14 @@ public class GamePanel extends JPanel implements Runnable{
             }
         }
 
+        if(currentMap==1)
+        {
+            kasseFyr.draw(g2);
+        }
         //PLAYER DRAWER
         player.draw(g2);
-        kasseFyr.draw(g2);
-        ui.draw(g2);
 
+        ui.draw(g2);
 
         g2.dispose();
     }

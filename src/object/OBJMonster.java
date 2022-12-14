@@ -5,7 +5,7 @@ import java.io.IOException;
 
 public class OBJMonster extends SuperObject
 {
-
+/*
 
     public int speed = 2;
     int counter = 0;
@@ -50,4 +50,6 @@ public class OBJMonster extends SuperObject
 
 
     }
+
+ */
 }
