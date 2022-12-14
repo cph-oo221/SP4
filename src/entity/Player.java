@@ -18,9 +18,10 @@ public class Player extends Entity{
 
     public final int screenX;
     public final int screenY;
-    public int hasGraphicsCard = 0;
+    public int hasGraphicsCard = 1;
     public int hasRAM = 0;
-
+    private int cooldown_count = 0;
+    private boolean cooldown = false;
     public int maxHP;
     public int HP = 32;
 
@@ -138,8 +139,10 @@ public class Player extends Entity{
                 spriteCounter = 0;
             }
         }
-        if (keyH.ePressed)
+        // OBJECT INTERACTION ON E PRESS
+        if (keyH.ePressed && !cooldown)
         {
+            cooldown = true;
             // TODO gp.obj[1].length idk if [1] is correct
             if (currentCollison < gp.obj[1].length && gp.obj[gp.currentMap][currentCollison] != null && currentCollison!= 999)
             {
@@ -152,6 +155,15 @@ public class Player extends Entity{
                 {
                     gp.obj[gp.currentMap][currentCollison].interact();
                 }
+            }
+        }
+        if (cooldown)
+        {
+            cooldown_count++;
+            if (cooldown_count > 19)
+            {
+                cooldown_count = 0;
+                cooldown = false;
             }
         }
 

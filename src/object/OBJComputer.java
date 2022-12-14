@@ -24,19 +24,23 @@ public class OBJComputer extends SuperObject {
     {
         if(gp.player.hasRAM > 0)
         {
-            System.out.println("you put in " + gp.player.hasRAM + " RAM.");
+            dialogue_text = "you put in " + gp.player.hasRAM + " RAM.";
             gp.player.hasRAM--;
             // computer wincount ++
             gp.countWinPoints();
         }
-        if(gp.player.hasGraphicsCard > 0)
+        else if(gp.player.hasGraphicsCard > 0)
         {
-            System.out.println("you put in " + gp.player.hasGraphicsCard + " Graphics Card.");
+            dialogue_text = "you put in " + gp.player.hasGraphicsCard + " Graphics Card.";
             gp.player.hasGraphicsCard--;
             // computer wincount ++
             gp.countWinPoints();
-
         }
-        System.out.println("This is your computer");
+
+        else
+        {
+            dialogue_text = "Beep bop. I'm your computer. Help me find my missing components!";
+        }
+        show_dialogue = true;
     }
 }
