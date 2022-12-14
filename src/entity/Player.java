@@ -18,8 +18,8 @@ public class Player extends Entity{
 
     public final int screenX;
     public final int screenY;
-    public int hasGraphicsCard=1;
-    public int hasRAM=1;
+    public int hasGraphicsCard = 0;
+    public int hasRAM = 0;
 
     public int maxHP;
     public int HP = 32;
