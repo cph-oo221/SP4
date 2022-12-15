@@ -13,10 +13,10 @@ import object.SuperObject;
 
 public class GamePanel extends JPanel implements Runnable{
 
-    // ********************************************************************************
-    // Projektet er baseret på torturials fra youtuberen "RyiSnow". God bless his soul.
-    // https://www.youtube.com/@RyiSnow
-    // ********************************************************************************
+    // ***********************************************************************************
+    // * Projektet er baseret på torturials fra youtuberen "RyiSnow". God bless his soul.*
+    // * https://www.youtube.com/@RyiSnow                                                *
+    // ***********************************************************************************
 
     //SCREEN SETTINGS
     Dimension size = Toolkit.getDefaultToolkit().getScreenSize();
