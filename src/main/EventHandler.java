@@ -121,6 +121,7 @@ public class EventHandler
         {
             gp.player.HP -= 4;
             System.out.println("your hp " + gp.player.HP);
+            gp.playSE(7);
             gp.player.invincible = true;
             if (gp.player.HP <= 0)
             {

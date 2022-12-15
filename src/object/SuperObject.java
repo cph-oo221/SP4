@@ -1,5 +1,6 @@
 package object;
 
+import main.DialogueHandler;
 import main.GamePanel;
 
 import java.awt.*;
@@ -9,6 +10,11 @@ public abstract class SuperObject
 {
     public GamePanel gp;
     public BufferedImage image;
+
+    DialogueHandler dhandler;
+    boolean show_dialogue = false;
+    int dialogue_timer = 0;
+    String dialogue_text = "Hej";
     public String name;
     public boolean collision = false;
     public int worldX, worldY;
@@ -25,6 +31,7 @@ public abstract class SuperObject
     public SuperObject()
     {
         this.solidArea = new Rectangle(solidAreaX,solidAreaY,solidAreaW,solidAreaH);
+        this.dhandler = new DialogueHandler();
     }
 
 
@@ -42,15 +49,30 @@ public abstract class SuperObject
             g2.drawImage(image, screenX, screenY, gp.tileSize, gp.tileSize, null);
         }
 
+        if (show_dialogue)
+        {
+            dialogue_timer++;
+            dhandler.drawDialogue(screenX - 80, screenY - 120, dialogue_text, g2);
+
+            if (dialogue_timer > 120)
+            {
+                show_dialogue = false;
+                dialogue_timer = 0;
+            }
+        }
+
     }
 
     public void interact()
     {
-        System.out.println( "This is: " + name);
+        show_dialogue = true;
     }
 
     public boolean isPickUpAble()
     {
         return pickUpAble;
     }
+
+
+    public void movement(){};
 }

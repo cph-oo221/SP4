@@ -1,6 +1,7 @@
 package main;
 
 import entity.Entity;
+import entity.Monster;
 import entity.Player;
 import tile.TileManager;
 
@@ -12,6 +13,8 @@ import object.SuperObject;
 
 
 public class GamePanel extends JPanel implements Runnable{
+
+    //Meget af koden er udsprunget af stor inspiration fra _link_
 
     //SCREEN SETTINGS
     private final int originalTileSize = 16; // 16*16 pixel tile
@@ -57,11 +60,13 @@ public class GamePanel extends JPanel implements Runnable{
 
     public UI ui = new UI(this);
     public EventHandler eHandler = new EventHandler(this);
+
     Thread gameThread;
 
     //ENTITY AND OBJECT
     public Player player = new Player(this, keyH);
     public SuperObject obj[][] = new SuperObject[maxMap][10];
+    public Monster kasseFyr = new Monster(this);
 
     public int gameState;
     public final int playState = 1;
@@ -69,6 +74,7 @@ public class GamePanel extends JPanel implements Runnable{
     public final int dungeonState = 3;
     public final int winState = 4;
     public final int lossState = 5;
+
 
 
 
@@ -151,6 +157,11 @@ public class GamePanel extends JPanel implements Runnable{
             eventH.checkEvent();
             eventH.win();
             eventH.playerDeath();
+            if(currentMap == 1)
+            {
+                kasseFyr.update();
+            }
+
         }
         if(gameState == pauseState)
         {
@@ -223,10 +234,14 @@ public class GamePanel extends JPanel implements Runnable{
             }
         }
 
+        if(currentMap==1)
+        {
+            kasseFyr.draw(g2);
+        }
         //PLAYER DRAWER
         player.draw(g2);
-        ui.draw(g2);
 
+        ui.draw(g2);
 
         g2.dispose();
     }
@@ -266,11 +281,5 @@ public class GamePanel extends JPanel implements Runnable{
         {
             gameState = winState;
         }
-    }
-
-    public void objectInteraction(int index)
-    {
-        obj[currentMap][index].interact();
-
     }
 }

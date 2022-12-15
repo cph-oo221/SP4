@@ -61,6 +61,9 @@ public class UI
         {
             drawLossScreen();
         }
+
+
+       // drawDialogue(200, 200, "kebab kebab kebab kebab kebab kebab kebab kebab kebab kebab kebab kebab kebab kebab kebab kebab kebab kebab kebab kebab kebab kebab kebab kebab kebab kebab kebab kebab kebab kebab");
     }
 
     public void drawWinScreen()
@@ -153,4 +156,5 @@ public class UI
         x = gp.screenWidth/2 - length/2;
         return x;
     }
+
 }
