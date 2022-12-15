@@ -83,6 +83,7 @@ public class CollisionChecker
                 {
                     player.collisionOn = true;
                     gp.kasseFyr.collisionOn = true;
+                    gp.eHandler.damage1();
                 }
                 break;
             case "down":
@@ -91,6 +92,7 @@ public class CollisionChecker
                 {
                     player.collisionOn = true;
                     gp.kasseFyr.collisionOn = true;
+                    gp.eHandler.damage1();
                 }
                 break;
             case "left":
@@ -99,6 +101,7 @@ public class CollisionChecker
                 {
                     player.collisionOn = true;
                     gp.kasseFyr.collisionOn = true;
+                    gp.eHandler.damage1();
                 }
                 break;
             case "right":
@@ -107,6 +110,7 @@ public class CollisionChecker
                 {
                     player.collisionOn = true;
                     gp.kasseFyr.collisionOn = true;
+                    gp.eHandler.damage1();
                 }
                 break;
         }
