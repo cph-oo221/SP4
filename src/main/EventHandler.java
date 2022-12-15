@@ -51,7 +51,8 @@ public class EventHandler
             // event happens
             teleport(1, 36, 8);
             toDungeon();
-        } else if (hit(1, 36, 6, "any") == true)
+        }
+        else if (hit(1, 36, 6, "any") == true)
         {
             // event happens
             teleport(0, 29, 39);
@@ -99,7 +100,7 @@ public class EventHandler
         gp.playMusic(4);
     }
 
-    private void toHubWorld()
+    public void toHubWorld()
     {
         gp.stopMusic();
         gp.playMusic(0);

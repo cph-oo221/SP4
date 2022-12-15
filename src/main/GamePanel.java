@@ -1,14 +1,17 @@
 package main;
 
+import entity.Entity;
 import entity.Monster;
 import entity.Player;
 import tile.TileManager;
 
 import javax.swing.*;
 import java.awt.*;
-
+import java.io.IOException;
 
 import object.SuperObject;
+
+
 public class GamePanel extends JPanel implements Runnable{
 
     //Meget af koden er udsprunget af stor inspiration fra _link_
@@ -35,14 +38,15 @@ public class GamePanel extends JPanel implements Runnable{
     public int currentMap = 0;
 
     //FPS
-    private int FPS = 60;
+    public int FPS = 60;
 
     //Win the game
     int winCount = 0;
 
     //SYSTEM
 
-    TileManager tileM = new TileManager(this);
+    public Entity entity = new Entity();
+    public TileManager tileM = new TileManager(this);
     KeyHandler keyH = new KeyHandler(this);
 
     Sound music = new Sound();
@@ -122,8 +126,15 @@ public class GamePanel extends JPanel implements Runnable{
 
             //When delta = drawInterval we update and repaint , then reset delta
             if (delta >= 1) {
+                try
+                {
                     update();
-                    repaint();
+                }
+                catch (IOException e)
+                {
+                    throw new RuntimeException(e);
+                }
+                repaint();
                     delta--;
                     drawCount++;
             }
@@ -137,7 +148,8 @@ public class GamePanel extends JPanel implements Runnable{
         }
     }
 
-    public void update(){
+    public void update() throws IOException
+    {
         if(gameState == playState)
         {
             player.update();
@@ -157,13 +169,53 @@ public class GamePanel extends JPanel implements Runnable{
         }
         if(gameState == lossState)
         {
-
+            // When gameState is lossState
+            // (Q) quit or (R) restart, can now be pressed
+            if (keyH.qPressed)
+            {
+                System.out.println("Game is shutting down...");
+                System.exit(0);
+            }
+            if(keyH.rPressed)
+            {
+                // reset game
+                gameRestart();
+            }
         }
         if(gameState == winState)
         {
-
+            // When gameState is lossState
+            // (Q) quit or (R) restart, can now be pressed
+            if (keyH.qPressed)
+            {
+                System.out.println("Game is shutting down...");
+                System.exit(0);
+            }
+            if(keyH.rPressed)
+            {
+                // reset game
+                gameRestart();
+            }
         }
 
+    }
+
+    private void gameRestart()
+    {
+        // stop music that are runing
+        stopMusic();
+
+        // defaultValues set players def. values
+        player.setDefaulValues();
+
+        // setupgame
+        setupGame();
+
+        // Set win counter back to default value
+        winCount = 0;
+
+        // Set the map to 0 if player died in map 1 (Dungeon map)
+        currentMap = 0;
     }
 
     public void paintComponent(Graphics g){

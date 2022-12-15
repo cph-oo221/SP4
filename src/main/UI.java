@@ -39,6 +39,12 @@ public class UI
 
         drawHpBar(150, 40);
 
+        // UI fps
+        fpsCounter(680, 50);
+
+        // UI Player Location
+        drawPlayerLocation(680, 70);
+
         if (gp.gameState == gp.pauseState)
         {
             drawPauseScreen();
@@ -68,6 +74,17 @@ public class UI
         int x = getXForCenteredText(text);
         int y = gp.screenHeight/2;
         g2.drawString(text, x, y);
+
+        // after win options
+        String restartText = "(R) Restart";
+        int restartX = 100;
+        int restartY = 500;
+        g2.drawString(restartText, restartX, restartY);
+
+        String quitText = "(Q) Quit";
+        int quitX = 480;
+        int quitY = 500;
+        g2.drawString(quitText, quitX, quitY);
     }
     public void drawLossScreen()
     {
@@ -77,6 +94,17 @@ public class UI
         int x = getXForCenteredText(text);
         int y = gp.screenHeight/2;
         g2.drawString(text, x, y);
+
+        // after loss options
+        String restartText = "(R) Restart";
+        int restartX = 100;
+        int restartY = 500;
+        g2.drawString(restartText, restartX, restartY);
+
+        String quitText = "(Q) Quit";
+        int quitX = 480;
+        int quitY = 500;
+        g2.drawString(quitText, quitX, quitY);
     }
 
     private void drawHpBar(int x, int y)
@@ -93,6 +121,23 @@ public class UI
             g2.fillRect(hpX, hpY, 5, 24);
             hpX += 6;
         }
+    }
+
+    public void fpsCounter(int posX, int posY)
+    {
+        Font font = new Font("Arial" , Font.BOLD , 20);
+        g2.setFont(font);
+        g2.setColor(Color.white);
+        g2.drawString("FPS: " + gp.FPS, posX, posY);
+    }
+
+    public void drawPlayerLocation(int posX, int posY)
+    {
+        Font font = new Font("Arial" , Font.BOLD , 17);
+        g2.setFont(font);
+        g2.setColor(Color.white);
+        g2.drawString("X: " + gp.player.worldX, posX, posY);
+        g2.drawString("Y: " + gp.player.worldY, posX, posY + 25);
     }
 
 

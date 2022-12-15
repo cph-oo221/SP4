@@ -15,6 +15,7 @@ public class Player extends Entity
     public int invincibleCounter = 0;
     GamePanel gp;
     public KeyHandler keyH;
+
     public final int screenX;
     public final int screenY;
     public int hasGraphicsCard = 1;
@@ -74,9 +75,10 @@ public class Player extends Entity
         worldX = gp.tileSize * 36;
         worldY = gp.tileSize * 8;
         speed = 6;
-        maxHP = 32;
-        HP = 32;
         direction = "up";
+        HP = maxHP;
+        hasGraphicsCard = 1;
+        hasRAM = 1;
     }
 
     public void update()
