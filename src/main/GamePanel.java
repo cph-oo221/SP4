@@ -123,7 +123,8 @@ public class GamePanel extends JPanel implements Runnable{
                 try
                 {
                     update();
-                } catch (IOException e)
+                }
+                catch (IOException e)
                 {
                     throw new RuntimeException(e);
                 }
