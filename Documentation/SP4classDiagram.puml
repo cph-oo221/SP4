@@ -10,36 +10,40 @@ class TileManager
 
 class KeyHandler implements KeyListener
 
-class Entity
+abstract class Entity
 class Player extends Entity
 class Monster extends Entity
-class NPC extends Entity
-class Boss extends Monster
-class Mob extends Monster
 class AssetSetter
 class UI
 class Sound
 class CollisionChecker
+class DialogueHandler
+class EventHandler
 
 class SuperObject
 class OBJRAM extends SuperObject
 class OBJSign extends SuperObject
 class OBJComputer extends SuperObject
+class OBJGraphicsCard extends SuperObject
+class OBJSpeedBoost extends SuperObject
 
 Main *-- GamePanel
 GamePanel *--* TileManager
-GamePanel *--* Entity
+GamePanel *--* Monster
 GamePanel *--* SuperObject
 GamePanel *--* KeyHandler
 GamePanel *--* AssetSetter
 GamePanel *--* UI
 GamePanel *--* Sound
 GamePanel *--* CollisionChecker
+GamePanel *--* EventHandler
 TileManager *-- Tile
+GamePanel *--* DialogueHandler
+GamePanel *--* Player
 
 Main : + main(String[] args)
 
-GamePanel : + SuperObject obj[]
+GamePanel : + SuperObject obj[][]
 GamePanel : - final int originalTileSize
 GamePanel : - final int scale
 GamePanel : + final int tileSize
@@ -50,8 +54,18 @@ GamePanel : + final int screenHeight
 GamePanel : + final int maxWorldCol
 GamePanel : + final int maxWorldRow
 GamePanel : - int fps
+GamePanel : + int currentMap
+GamePanel : + int gameState
+GamePanel : + int lossState
+GamePanel : + int maxMap
+GamePanel : + int pauseState
+GamePanel : + int playState
+GamePanel : + int winCount
+GamePanel : + int winState
 
 GamePanel : + void paintComponent(Graphics g)
+GamePanel : + void countWinPoints()
+GamePanel : + void gameRestart()
 GamePanel : + void playMusic(int i)
 GamePanel : + void playSE(int i)
 GamePanel : + void stopMusic()
@@ -59,33 +73,66 @@ GamePanel : + void run()
 GamePanel : + void setupGame()
 GamePanel : + void startGameThread()
 GamePanel : + void update()
-GamePanel : + void update()
+GamePanel : + void win()
 
 AssetSetter : - GamePanel gp
 AssetSetter : + void setObject()
+AssetSetter : + void setNewObject()
 
 CollisionChecker : - GamePanel gp
 CollisionChecker : + void checkTile(Entity e)
+CollisionChecker : + void checkKasseFyr(Entity e)
 CollisionChecker : + int checkObject(Entity entity, boolean player)
+
+DialogueHandler : + void drawDialogue(int, int, String, Graphics2D)
+DialogueHandler : + Font comic_sans
+
+EventHandler : + Rectangle[][][] eventRect
+EventHandler : + int eventRectDefaultX
+EventHandler : + int eventRectDefaultY
+EventHandler : + void checkEvent()
+EventHandler : + void damage()
+EventHandler : + void damage1()
+EventHandler : + boolean hit(int, int, String)
+EventHandler : + void invincibilityFrames()
+EventHandler : + void playerDeath()
+EventHandler : + void setFire()
+EventHandler : + void teleport(int, int, int)
+EventHandler : + void toDungeon()
+EventHandler : + void toHubWorld()
+EventHandler : + void win()
 
 KeyHandler : + boolean upPressed
 KeyHandler : + boolean downPressed
 KeyHandler : + boolean leftPressed
 KeyHandler : + boolean rightPressed
+KeyHandler : + boolean ePressed
+KeyHandler : + boolean rPressed
+KeyHandler : + boolean qPressed
 KeyHandler : + public void keyPressed(KeyEvent e)
 KeyHandler : + public void keyReleased(KeyEvent e)
+KeyHandler : + public void keyTyped(KeyEvent e)
 
 Sound : + Clip clip
-Sound : + URL soundURL[]
+Sound : + URL[] soundURL
 Sound : + void setFile(int i)
 Sound : + void play()
 Sound : + void loop()
 Sound : + void stop()
 
 UI : - GamePanel gp
-UI : - Font font
-UI : - BufferedImage tmp_image
+UI : - Graphics2D g2
+UI : - Font arial_BOLD_40
+UI : - BufferedImage RAMimage
+UI : - BufferedImage graphicsCardImage
 UI : + void draw(Graphics2D g2)
+UI : + void drawHPBar(int, int)
+UI : + void drawLossScreen()
+UI : + void drawPauseScreen()
+UI : + void drawPlayerLocation(int, int)
+UI : + void drawWinScreen()
+UI : + void fpsCounter(int, int)
+UI : + void getXForCenteredText(String)
 
 Entity : + int worldX, worldY
 Entity : + int speed
@@ -98,20 +145,29 @@ Entity : + int solidAreaDefaultX, solidAreaDefaultY
 Entity : + boolean collisionOn
 
 Player : + GamePanel gp
+Player : + Boolean cooldown
+Player : + int cooldown_count
+Player : + int currentCollision
+Player : + int hasGraphicsCard
+Player : + int hasRam
+Player : + int HP
+Player : + int maxHP
+Player : + boolean invincible
+Player : + int invincibleCounter
 Player : + KeyHandler keyH
 Player : + final int screenx
 Player : + final int screenY
 Player : + int hasItem
-Player : + void getPlayerImage
-Player : + void setDefaultValues
+Player : + void getPlayerImage()
+Player : + void setDefaultValues()
 Player : + void update()
-Player : + void pickUpObject(int i)
+Player : + void pickUpObject(int)
 Player : + void draw(Graphics2D g2)
 
 TileManager : + GamePanel gp
 TileManager : + Tile[] tiles
-TileManager : + int mapTilNum[][]
-TileManager : + void getFileImage
+TileManager : + int[][][] mapTilNum
+TileManager : + void getFileImage()
 TileManager : + void loadMap(String filepath)
 TileManager : + void draw(Graphics2D g2)
 
@@ -119,13 +175,24 @@ Tile : + BufferedImage image
 Tile : + boolean collision
 
 SuperObject : + GamePanel gp
+SuperObject : + DialogueHandler dhandler
+SuperObject : + String dialogueText
+SuperObject : + int dialogue_timer
 SuperObject : + BufferedImage image
 SuperObject : + String name
 SuperObject : + boolean collison
+SuperObject : + boolean pickupable
 SuperObject : + int worldX, worldY
 SuperObject : + Rectangle solidArea
 SuperObject : + int solidAreaDefaultX
 SuperObject : + int solidAreaDefaultY
+SuperObject : + int solidAreaDefaultH
+SuperObject : + int solidAreaDefaultW
+SuperObject : + int solidAreaDefaultW
+SuperObject : + int solidAreaDefaultW
 SuperObject : + void draw(Graphics2D g2, GamePanel gp)
+SuperObject : + void interact()
+SuperObject : + void isPickUpable()
+SuperObject : + void movement()
 
 @enduml

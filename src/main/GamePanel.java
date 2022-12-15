@@ -20,9 +20,6 @@ public class GamePanel extends JPanel implements Runnable
     // ***********************************************************************************
 
     //SCREEN SETTINGS
-    Dimension size = Toolkit.getDefaultToolkit().getScreenSize();
-    public int width = (int) size.getWidth();
-    public int height = (int) size.getHeight();
     private final int originalTileSize = 16; // 16*16 pixel tile
     public int scale = 3;
     public int tileSize = originalTileSize * scale; //48*48 pixel tile
@@ -90,8 +87,6 @@ public class GamePanel extends JPanel implements Runnable
     }
     public void setupGame()
     {
-        System.out.println(width);
-        System.out.println(height);
         gameState = playState;
         aSetter.setObject();
         playMusic(0);
