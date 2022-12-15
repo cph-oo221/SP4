@@ -77,8 +77,8 @@ public class Player extends Entity
         speed = 6;
         direction = "up";
         HP = maxHP;
-        hasGraphicsCard = 1;
-        hasRAM = 1;
+        hasGraphicsCard = 0;
+        hasRAM = 0;
     }
 
     public void update()
