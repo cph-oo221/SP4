@@ -149,7 +149,6 @@ public class Player extends Entity
         if (keyH.ePressed && !cooldown)
         {
             cooldown = true;
-            // TODO gp.obj[1].length idk if [1] is correct
             if (currentCollison < gp.obj[1].length && gp.obj[gp.currentMap][currentCollison] != null && currentCollison != 999)
             {
                 if (gp.obj[gp.currentMap][currentCollison].isPickUpAble())
