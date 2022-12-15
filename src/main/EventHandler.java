@@ -60,6 +60,7 @@ public class EventHandler
         }
         // Fire in dungeon
         setFire();
+
     }
 
     public void setFire()
@@ -120,6 +121,22 @@ public class EventHandler
         if(gp.player.invincible == false)
         {
             gp.player.HP -= 4;
+            System.out.println("your hp " + gp.player.HP);
+            gp.playSE(7);
+            gp.player.invincible = true;
+            if (gp.player.HP <= 0)
+            {
+                gp.gameState = gp.lossState;
+                System.out.println("GameOver!");
+            }
+        }
+    }
+
+    public void damage1()
+    {
+        if(gp.player.invincible == false)
+        {
+            gp.player.HP -= 40;
             System.out.println("your hp " + gp.player.HP);
             gp.playSE(7);
             gp.player.invincible = true;
