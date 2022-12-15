@@ -63,7 +63,7 @@ public class UI
         }
 
 
-        // drawDialogue(200, 200, "kebab kebab kebab kebab kebab kebab kebab kebab kebab kebab kebab kebab kebab kebab kebab kebab kebab kebab kebab kebab kebab kebab kebab kebab kebab kebab kebab kebab kebab kebab");
+        
     }
 
     public void drawWinScreen()
