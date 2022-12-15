@@ -136,8 +136,8 @@ public class UI
         Font font = new Font("Arial" , Font.BOLD , 17);
         g2.setFont(font);
         g2.setColor(Color.white);
-        g2.drawString("X: " + gp.player.worldX, posX, posY);
-        g2.drawString("Y: " + gp.player.worldY, posX, posY + 25);
+        g2.drawString("X: " + gp.player.worldX / gp.tileSize, posX, posY);
+        g2.drawString("Y: " + gp.player.worldY / gp.tileSize, posX, posY + 25);
     }
 
 
