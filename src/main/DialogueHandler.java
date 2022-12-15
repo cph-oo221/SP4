@@ -9,7 +9,6 @@ public class DialogueHandler
     Font comic_sans;
     public DialogueHandler()
     {
-
         comic_sans = new Font("Comic", Font.BOLD, 13);
     }
 
@@ -18,8 +17,6 @@ public class DialogueHandler
     {
         g2.setColor(Color.black);
         g2.fillRoundRect(x, y, 208, 108, 50, 50);
-
-        // drawPolygon ??
 
         g2.setColor(Color.white);
         g2.fillRoundRect(x + 4, y + 4, 200, 100, 50, 50);
@@ -50,6 +47,5 @@ public class DialogueHandler
         // new msg is substring from last character
         // check if ms is
 
-        // g2.drawString(msg, x + 20, y + 20);
     }
 }

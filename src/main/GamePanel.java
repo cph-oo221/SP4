@@ -11,8 +11,13 @@ import java.io.IOException;
 import object.SuperObject;
 
 
-public class GamePanel extends JPanel implements Runnable{
+public class GamePanel extends JPanel implements Runnable
+{
 
+    // ***********************************************************************************
+    // * Projektet er baseret på torturials fra youtuberen "RyiSnow". God bless his soul.*
+    // * https://www.youtube.com/@RyiSnow                                                *
+    // ***********************************************************************************
 
     //SCREEN SETTINGS
     Dimension size = Toolkit.getDefaultToolkit().getScreenSize();
@@ -99,7 +104,8 @@ public class GamePanel extends JPanel implements Runnable{
     }
 
     @Override
-    public void run() {
+    public void run()
+    {
         // DELTA METHOD
         double drawInterval = 1000000000 / FPS;
         double delta = 0;
@@ -109,7 +115,8 @@ public class GamePanel extends JPanel implements Runnable{
         int drawCount = 0;
 
 
-        while (gameThread != null) {
+        while (gameThread != null)
+        {
 
             //Check system time
             currentTime = System.nanoTime();
@@ -123,7 +130,8 @@ public class GamePanel extends JPanel implements Runnable{
             lastTime = currentTime;
 
             //When delta = drawInterval we update and repaint , then reset delta
-            if (delta >= 1) {
+            if (delta >= 1)
+            {
                 try
                 {
                     update();
@@ -136,7 +144,8 @@ public class GamePanel extends JPanel implements Runnable{
                     delta--;
                     drawCount++;
             }
-            if (timer >= 1000000000) {
+            if (timer >= 1000000000)
+            {
                 System.out.println("FPS : " + drawCount);
                 System.out.println("X: "+player.worldX/tileSize);
                 System.out.println("Y: "+player.worldY/tileSize);
@@ -216,7 +225,8 @@ public class GamePanel extends JPanel implements Runnable{
         currentMap = 0;
     }
 
-    public void paintComponent(Graphics g){
+    public void paintComponent(Graphics g)
+    {
 
         super.paintComponent(g);
 

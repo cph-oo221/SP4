@@ -5,15 +5,19 @@ import main.GamePanel;
 import javax.imageio.ImageIO;
 import java.io.IOException;
 
-public class OBJComputer extends SuperObject {
+public class OBJComputer extends SuperObject
+{
     GamePanel gp;
-    public OBJComputer(GamePanel gp) {
+    public OBJComputer(GamePanel gp)
+    {
         this.gp = gp;
         super.solidArea.height = 30;
         name = "Computer";
-        try {
+        try
+        {
             image = ImageIO.read(getClass().getResourceAsStream("/objects/Computer.png"));
-        } catch (IOException e) {
+        } catch (IOException e)
+        {
             e.printStackTrace();
         }
             collision = true;

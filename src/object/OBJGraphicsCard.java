@@ -5,7 +5,8 @@ package object;
 import javax.imageio.ImageIO;
 import java.io.IOException;
 
-public class OBJGraphicsCard extends SuperObject{
+public class OBJGraphicsCard extends SuperObject
+{
     public OBJGraphicsCard()
     {
         name = "Graphics Card";
