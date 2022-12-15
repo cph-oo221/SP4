@@ -11,13 +11,10 @@ import java.util.Random;
 
 public class Player extends Entity
 {
-
-
     public boolean invincible = false;
     public int invincibleCounter = 0;
     GamePanel gp;
     public KeyHandler keyH;
-
     public final int screenX;
     public final int screenY;
     public int hasGraphicsCard = 1;
@@ -26,10 +23,7 @@ public class Player extends Entity
     private boolean cooldown = false;
     public int maxHP;
     public int HP = 32;
-
     public int currentCollison = 999;
-
-
     public Player(GamePanel gp, KeyHandler keyH)
     {
         this.gp = gp;
