@@ -20,7 +20,7 @@ public class UI
     public UI(GamePanel gp)
     {
         this.gp = gp;
-        arial_BOLD_40 = new Font("Arial" , Font.BOLD , 40);
+        arial_BOLD_40 = new Font("Arial", Font.BOLD, 40);
         OBJGraphicsCard OBJGraphicsCard = new OBJGraphicsCard();
         OBJRam OBJRAM = new OBJRam();
         graphicsCardImage = OBJGraphicsCard.image;
@@ -57,13 +57,13 @@ public class UI
         {
             drawWinScreen();
         }
-        if(gp.gameState == gp.lossState)
+        if (gp.gameState == gp.lossState)
         {
             drawLossScreen();
         }
 
 
-       // drawDialogue(200, 200, "kebab kebab kebab kebab kebab kebab kebab kebab kebab kebab kebab kebab kebab kebab kebab kebab kebab kebab kebab kebab kebab kebab kebab kebab kebab kebab kebab kebab kebab kebab");
+        // drawDialogue(200, 200, "kebab kebab kebab kebab kebab kebab kebab kebab kebab kebab kebab kebab kebab kebab kebab kebab kebab kebab kebab kebab kebab kebab kebab kebab kebab kebab kebab kebab kebab kebab");
     }
 
     public void drawWinScreen()
@@ -72,7 +72,7 @@ public class UI
         g2.setColor(Color.yellow);
         String text = "YOU WIN!";
         int x = getXForCenteredText(text);
-        int y = gp.screenHeight/2;
+        int y = gp.screenHeight / 2;
         g2.drawString(text, x, y);
 
         // after win options
@@ -86,13 +86,14 @@ public class UI
         int quitY = 500;
         g2.drawString(quitText, quitX, quitY);
     }
+
     public void drawLossScreen()
     {
         g2.setFont(arial_BOLD_40);
         g2.setColor(Color.red);
         String text = "YOU DIED!";
         int x = getXForCenteredText(text);
-        int y = gp.screenHeight/2;
+        int y = gp.screenHeight / 2;
         g2.drawString(text, x, y);
 
         // after loss options
@@ -125,7 +126,7 @@ public class UI
 
     public void fpsCounter(int posX, int posY)
     {
-        Font font = new Font("Arial" , Font.BOLD , 20);
+        Font font = new Font("Arial", Font.BOLD, 20);
         g2.setFont(font);
         g2.setColor(Color.white);
         g2.drawString("FPS: " + gp.FPS, posX, posY);

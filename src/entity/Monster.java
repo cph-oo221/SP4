@@ -80,10 +80,10 @@ public class Monster extends Entity
         {
             direction = "up";
         }
-        if (direction == "down")
+        if (direction.equals("down"))
         {
             worldY += speed;
-        } else if (direction == "up")
+        } else if (direction.equals("up"))
         {
             worldY -= speed;
         }
@@ -94,11 +94,11 @@ public class Monster extends Entity
             //gp.player.spin();
             System.out.println("collision");
 
-            if (direction == "up")
+            if (direction.equals("up"))
             {
                 System.out.println("switching direction to down");
                 direction = "down";
-            } else if (direction == "down")
+            } else if (direction.equals("down"))
             {
                 System.out.println("switching direction to up");
                 direction = "up";

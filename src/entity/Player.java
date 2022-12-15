@@ -16,8 +16,8 @@ public class Player extends Entity
     GamePanel gp;
     public KeyHandler keyH;
 
-    public final int screenX;
-    public final int screenY;
+    public int screenX;
+    public int screenY;
     public int hasGraphicsCard = 1;
     public int hasRAM = 0;
     private int cooldown_count = 0;
@@ -29,9 +29,9 @@ public class Player extends Entity
     {
         this.gp = gp;
         this.keyH = keyH;
-
         screenX = gp.screenWidth / 2 - (gp.tileSize / 2);
         screenY = gp.screenHeight / 2 - (gp.tileSize / 2);
+
 
         solidArea = new Rectangle();
         solidArea.x = (int) (gp.tileSize * 0.4);
@@ -46,7 +46,6 @@ public class Player extends Entity
         setDefaulValues();
         getPlayerImage();
     }
-
     public void getPlayerImage()
     {
         try
@@ -104,7 +103,6 @@ public class Player extends Entity
 
             //CHECK TILE COLLISION
             collisionOn = false;
-            collisionOn = false;
             gp.cChecker.checkTile(this);
 
             //CHECK OBJECT COLLISION
@@ -123,22 +121,14 @@ public class Player extends Entity
             gp.eventH.invincibilityFrames();
 
             //IF COLLISION IS FALSE, PLAYER CAN MOVE
-            if (collisionOn == false)
+            if (!collisionOn)
             {
                 switch (direction)
                 {
-                    case "up":
-                        worldY -= speed;
-                        break;
-                    case "down":
-                        worldY += speed;
-                        break;
-                    case "left":
-                        worldX -= speed;
-                        break;
-                    case "right":
-                        worldX += speed;
-                        break;
+                    case "up" -> worldY -= speed;
+                    case "down" -> worldY += speed;
+                    case "left" -> worldX -= speed;
+                    case "right" -> worldX += speed;
                 }
             }
 
@@ -260,26 +250,5 @@ public class Player extends Entity
         }
 
         g2.drawImage(image, screenX, screenY, gp.tileSize, gp.tileSize, null);
-    }
-
-    public void spin()
-    {
-        Random random = new Random(4);
-        int dirNum = random.nextInt();
-        switch (dirNum)
-        {
-            case 1:
-                keyH.upPressed = true;
-                break;
-            case 2:
-                keyH.downPressed = true;
-                break;
-            case 3:
-                keyH.leftPressed = true;
-                break;
-            case 4:
-                keyH.rightPressed = true;
-                break;
-        }
     }
 }

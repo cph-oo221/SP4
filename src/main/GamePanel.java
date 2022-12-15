@@ -1,6 +1,5 @@
 package main;
 
-import entity.Entity;
 import entity.Monster;
 import entity.Player;
 import tile.TileManager;
@@ -14,18 +13,20 @@ import object.SuperObject;
 
 public class GamePanel extends JPanel implements Runnable{
 
+
     //Meget af koden er udsprunget af stor inspiration fra _link_
 
     //SCREEN SETTINGS
+    Dimension size = Toolkit.getDefaultToolkit().getScreenSize();
+    public int width = (int) size.getWidth();
+    public int height = (int) size.getHeight();
     private final int originalTileSize = 16; // 16*16 pixel tile
-    private final int scale = 3;
-    public final int tileSize = originalTileSize * scale; //48*48 pixel tile
-
-    public final int maxScreenColumn = 16;
-    public final int maxScreenRow = 12;
-
-    public final int screenWidth = tileSize * maxScreenColumn; // 768 pixels
-    public final int screenHeight = tileSize * maxScreenRow; // 576 pixels
+    public int scale = 3;
+    public int tileSize = originalTileSize * scale; //48*48 pixel tile
+    public int maxScreenColumn = 16;
+    public int maxScreenRow = 12;
+    public int screenWidth = tileSize * maxScreenColumn; // 768 pixels
+    public int screenHeight = tileSize * maxScreenRow; // 576 pixels
 
     //World Settings
     public final int maxWorldCol = 50;
@@ -45,7 +46,6 @@ public class GamePanel extends JPanel implements Runnable{
 
     //SYSTEM
 
-    public Entity entity = new Entity();
     public TileManager tileM = new TileManager(this);
     KeyHandler keyH = new KeyHandler(this);
 
@@ -71,7 +71,6 @@ public class GamePanel extends JPanel implements Runnable{
     public int gameState;
     public final int playState = 1;
     public final int pauseState = 2;
-    public final int dungeonState = 3;
     public final int winState = 4;
     public final int lossState = 5;
 
@@ -89,6 +88,8 @@ public class GamePanel extends JPanel implements Runnable{
     }
     public void setupGame()
     {
+        System.out.println(width);
+        System.out.println(height);
         gameState = playState;
         aSetter.setObject();
         playMusic(0);
