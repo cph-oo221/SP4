@@ -172,45 +172,6 @@ public class TileManager
                 worldRow++;
             }
         }
-
-
-        /* // Home made method with for loops
-        for(int i = 0; i < gp.tileSize * gp.maxScreenColumn; i+=gp.tileSize)
-        {
-            g2.drawImage(tiles[2].image, i, 0, gp.tileSize, gp.tileSize, null);
-        }
-        for(int i = 0; i < gp.tileSize * gp.maxScreenRow; i += gp.tileSize)
-        {
-            g2.drawImage(tiles[2].image, 0, i, gp.tileSize, gp.tileSize, null);
-        }
-        for(int i = 0; i < gp.tileSize * gp.maxScreenRow; i += gp.tileSize)
-        {
-            g2.drawImage(tiles[2].image, (gp.maxScreenColumn*gp.tileSize)-gp.tileSize, i, gp.tileSize, gp.tileSize, null);
-        }
-        for(int i = 0; i < gp.tileSize * gp.maxScreenColumn; i += gp.tileSize)
-        {
-            g2.drawImage(tiles[2].image, i, (gp.maxScreenRow*gp.tileSize)-gp.tileSize, gp.tileSize, gp.tileSize, null);
-        }
-
-        int counter = 0;
-        for(int i = gp.tileSize ; i < (gp.maxScreenRow * gp.tileSize) - gp.tileSize ; i += gp.tileSize) {
-
-            for (int j = gp.tileSize; j < ( gp.tileSize * gp.maxScreenColumn )- gp.tileSize; j += gp.tileSize) {
-                if( counter % 2 == 0)
-                {
-                    g2.drawImage(tiles[0].image, j, i, gp.tileSize, gp.tileSize, null);
-                }
-                if(counter % 2 != 0)
-                {
-                    g2.drawImage(tiles[1].image, j , i, gp.tileSize, gp.tileSize, null);
-                }
-                counter++;
-            }
-            counter++;
-        }
-    }
-
-         */
-
+        
     }
 }
