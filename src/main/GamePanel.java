@@ -14,8 +14,6 @@ import object.SuperObject;
 public class GamePanel extends JPanel implements Runnable{
 
 
-    //Meget af koden er udsprunget af stor inspiration fra _link_
-
     //SCREEN SETTINGS
     Dimension size = Toolkit.getDefaultToolkit().getScreenSize();
     public int width = (int) size.getWidth();
