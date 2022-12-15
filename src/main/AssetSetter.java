@@ -41,8 +41,5 @@ public class AssetSetter
             gp.obj[mapNum][4].worldX = 23 * gp.tileSize;
             gp.obj[mapNum][4].worldY = 29 * gp.tileSize;
         }
-
-
-
     }
 }

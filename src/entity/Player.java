@@ -7,7 +7,6 @@ import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
-import java.util.Random;
 
 public class Player extends Entity
 {
@@ -89,15 +88,18 @@ public class Player extends Entity
             {
                 direction = "up";
 
-            } else if (keyH.downPressed)
+            }
+            else if (keyH.downPressed)
             {
                 direction = "down";
 
-            } else if (keyH.leftPressed)
+            }
+            else if (keyH.leftPressed)
             {
                 direction = "left";
 
-            } else if (keyH.rightPressed)
+            }
+            else if (keyH.rightPressed)
             {
                 direction = "right";
             }
@@ -139,7 +141,8 @@ public class Player extends Entity
                 if (spriteNumber == 1)
                 {
                     spriteNumber = 2;
-                } else if (spriteNumber == 2)
+                }
+                else if (spriteNumber == 2)
                 {
                     spriteNumber = 1;
                 }
@@ -150,7 +153,6 @@ public class Player extends Entity
         if (keyH.ePressed && !cooldown)
         {
             cooldown = true;
-            // TODO gp.obj[1].length idk if [1] is correct
             if (currentCollison < gp.obj[1].length && gp.obj[gp.currentMap][currentCollison] != null && currentCollison != 999)
             {
                 if (gp.obj[gp.currentMap][currentCollison].isPickUpAble())
