@@ -109,7 +109,7 @@ public class Player extends Entity
             currentCollison = gp.cChecker.checkObject(this, true);
 
             //check event
-            gp.eHandler.checkEvent();
+            gp.eventH.checkEvent();
 
             gp.cChecker.checkKasseFyr(this);
 
