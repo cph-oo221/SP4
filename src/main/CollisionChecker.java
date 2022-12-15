@@ -125,7 +125,8 @@ public class CollisionChecker
 
         for(int i = 0; i < gp.obj[1].length-1 ; i++)
         {
-            if(gp.obj[gp.currentMap][i] != null) {
+            if(gp.obj[gp.currentMap][i] != null)
+            {
                 //get entity's position
                 entity.solidArea.x = entity.worldX + entity.solidArea.x;
                 entity.solidArea.y = entity.worldY + entity.solidArea.y;
@@ -137,7 +138,8 @@ public class CollisionChecker
                 {
                     case "up":
                         entity.solidArea.y -= entity.speed;
-                        if (entity.solidArea.intersects(gp.obj[gp.currentMap][i].solidArea)) {
+                        if (entity.solidArea.intersects(gp.obj[gp.currentMap][i].solidArea))
+                        {
                             if(gp.obj[gp.currentMap][i].collision)
                             {
                                 entity.collisionOn = true;
@@ -151,7 +153,8 @@ public class CollisionChecker
                         break;
                     case "down":
                         entity.solidArea.y += entity.speed;
-                        if (entity.solidArea.intersects(gp.obj[gp.currentMap][i].solidArea)) {
+                        if (entity.solidArea.intersects(gp.obj[gp.currentMap][i].solidArea))
+                        {
                             if(gp.obj[gp.currentMap][i].collision)
                             {
                                 entity.collisionOn = true;
@@ -164,7 +167,8 @@ public class CollisionChecker
                         break;
                     case "left":
                         entity.solidArea.x -= entity.speed;
-                        if (entity.solidArea.intersects(gp.obj[gp.currentMap][i].solidArea)) {
+                        if (entity.solidArea.intersects(gp.obj[gp.currentMap][i].solidArea))
+                        {
                             if(gp.obj[gp.currentMap][i].collision)
                             {
                                 entity.collisionOn = true;
@@ -177,7 +181,8 @@ public class CollisionChecker
                         break;
                     case "right":
                         entity.solidArea.x += entity.speed;
-                        if (entity.solidArea.intersects(gp.obj[gp.currentMap][i].solidArea)) {
+                        if (entity.solidArea.intersects(gp.obj[gp.currentMap][i].solidArea))
+                        {
                             if(gp.obj[gp.currentMap][i].collision)
                             {
                                 entity.collisionOn = true;

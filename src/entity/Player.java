@@ -63,7 +63,8 @@ public class Player extends Entity
             right2 = ImageIO.read(getClass().getResourceAsStream("/player/Player Right2.png"));
 
 
-        } catch (IOException e)
+        }
+        catch (IOException e)
         {
             e.printStackTrace();
         }
@@ -155,7 +156,8 @@ public class Player extends Entity
                 if (gp.obj[gp.currentMap][currentCollison].isPickUpAble())
                 {
                     pickUpObject(currentCollison);
-                } else
+                }
+                else
                 {
                     gp.obj[gp.currentMap][currentCollison].interact();
                 }

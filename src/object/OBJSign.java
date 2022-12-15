@@ -5,7 +5,8 @@ import main.GamePanel;
 import javax.imageio.ImageIO;
 import java.io.IOException;
 
-public class OBJSign extends SuperObject{
+public class OBJSign extends SuperObject
+{
 
     GamePanel gp;
     public OBJSign(GamePanel gp)
