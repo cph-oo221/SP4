@@ -29,24 +29,30 @@ public class Sound
             clip.open(ais);
 
 
-        } catch (UnsupportedAudioFileException e)
+        }
+        catch (UnsupportedAudioFileException e)
         {
             throw new RuntimeException(e);
-        } catch (IOException e)
+        }
+        catch (IOException e)
         {
             throw new RuntimeException(e);
-        } catch (LineUnavailableException e)
+        }
+        catch (LineUnavailableException e)
         {
             throw new RuntimeException(e);
         }
     }
-    public void play() {
+    public void play()
+    {
         clip.start();
     }
-    public void loop() {
+    public void loop()
+    {
         clip.loop(Clip.LOOP_CONTINUOUSLY);
     }
-    public void stop() {
+    public void stop()
+    {
         clip.stop();
     }
 }

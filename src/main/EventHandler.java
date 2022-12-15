@@ -165,7 +165,6 @@ public class EventHandler
         gp.currentMap = map;
         gp.player.worldX = col * gp.tileSize;
         gp.player.worldY = row * gp.tileSize;
-
     }
 
     public boolean hit(int map, int col, int row, String reqDirection)
@@ -191,9 +190,6 @@ public class EventHandler
             eventRect[map][col][row].x = eventRectDefaultX;
             eventRect[map][col][row].y = eventRectDefaultY;
         }
-
-
-
         return hit;
     }
 

@@ -12,7 +12,7 @@ public class Monster extends Entity
     GamePanel gp;
     int speed = 2;
     public BufferedImage image;
-    int timer=0;
+    int timer = 0;
     public Monster(GamePanel gp)
     {
         this.gp = gp;
@@ -32,8 +32,8 @@ public class Monster extends Entity
 
     public void setDefaultStats()
     {
-        worldX = 11*gp.tileSize;
-        worldY = 40*gp.tileSize;
+        worldX = 11 * gp.tileSize;
+        worldY = 40 * gp.tileSize;
         speed = 2;
         direction = "down";
     }
@@ -42,7 +42,8 @@ public class Monster extends Entity
         try
         {
             image = ImageIO.read(getClass().getResourceAsStream("/objects/cool_monster.jpeg"));
-        } catch (IOException e)
+        }
+        catch (IOException e)
         {
             e.printStackTrace();
         }
@@ -83,7 +84,8 @@ public class Monster extends Entity
         if (direction.equals("down"))
         {
             worldY += speed;
-        } else if (direction.equals("up"))
+        }
+        else if (direction.equals("up"))
         {
             worldY -= speed;
         }
@@ -98,7 +100,8 @@ public class Monster extends Entity
             {
                 System.out.println("switching direction to down");
                 direction = "down";
-            } else if (direction.equals("down"))
+            }
+            else if (direction.equals("down"))
             {
                 System.out.println("switching direction to up");
                 direction = "up";

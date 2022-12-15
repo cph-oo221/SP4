@@ -15,7 +15,8 @@ public class TileManager
     public Tile[] tiles;
     public int mapTileNum[][][];
 
-    public TileManager(GamePanel gp) {
+    public TileManager(GamePanel gp)
+    {
         this.gp = gp;
 
         tiles = new Tile[90];
@@ -30,8 +31,10 @@ public class TileManager
         loadMap("/maps/DT.txt",1);
     }
 
-    public void getTileImage() {
-        try {
+    public void getTileImage()
+    {
+        try
+        {
             // Dungeon Floor
             tiles[0] = new Tile();
             tiles[0].image = ImageIO.read(getClass().getResourceAsStream("/tiles/Dungeon Floor.png"));
@@ -96,7 +99,9 @@ public class TileManager
             tiles[14].image = ImageIO.read(getClass().getResourceAsStream("/tiles/DungeonDoorRotateRight.png"));
 
 
-        } catch (IOException e) {
+        }
+        catch (IOException e)
+        {
             e.printStackTrace();
         }
     }
@@ -159,10 +164,10 @@ public class TileManager
             int screenY = worldY - gp.player.worldY + gp.player.screenY;
 
             //only draw the tiles we see + 1
-                 if(worldX + gp.tileSize > gp.player.worldX - gp.player.screenX &&
-                    worldX - gp.tileSize < gp.player.worldX + gp.player.screenX &&
-                    worldY + gp.tileSize > gp.player.worldY - gp.player.screenY &&
-                    worldY - gp.tileSize < gp.player.worldY + gp.player.screenY)
+            if(worldX + gp.tileSize > gp.player.worldX - gp.player.screenX
+                    && worldX - gp.tileSize < gp.player.worldX + gp.player.screenX
+                    && worldY + gp.tileSize > gp.player.worldY - gp.player.screenY
+                    && worldY - gp.tileSize < gp.player.worldY + gp.player.screenY)
 
                 g2.drawImage(tiles[tileNum].image, screenX, screenY, gp.tileSize, gp.tileSize, null);
 

@@ -16,7 +16,8 @@ public class OBJComputer extends SuperObject
         try
         {
             image = ImageIO.read(getClass().getResourceAsStream("/objects/Computer.png"));
-        } catch (IOException e)
+        }
+        catch (IOException e)
         {
             e.printStackTrace();
         }
