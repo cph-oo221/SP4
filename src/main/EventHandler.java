@@ -134,7 +134,7 @@ public class EventHandler
 
     public void damage1()
     {
-        if(gp.player.invincible == false)
+        if(!gp.player.invincible)
         {
             gp.player.HP -= 40;
             System.out.println("your hp " + gp.player.HP);
