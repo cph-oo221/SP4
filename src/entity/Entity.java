@@ -5,8 +5,8 @@ import main.GamePanel;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 
-public abstract class Entity {
-    GamePanel gp;
+public abstract class Entity
+{
     public int worldX, worldY;
     public int speed;
 
